@@ -422,6 +422,81 @@ opacity:1;
 
 
 
+  .cart-floating{
+
+position:fixed;
+
+right:20px;
+bottom:80px;
+
+background:#d86b8b;
+
+color:white;
+
+padding:15px 25px;
+
+border-radius:50px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+z-index:99;
+
+}
+
+
+#cartCount{
+
+background:white;
+
+color:#d86b8b;
+
+padding:3px 8px;
+
+border-radius:50%;
+
+}
+
+
+
+.cart-item{
+
+display:flex;
+
+justify-content:space-between;
+
+background:#fff5f7;
+
+padding:10px;
+
+margin:10px 0;
+
+border-radius:15px;
+
+}
+
+
+.remove{
+
+background:red;
+
+color:white;
+
+border:none;
+
+border-radius:10px;
+
+padding:5px 10px;
+
+}
+
+
+
+
+
+
+
 
 
 
@@ -973,7 +1048,190 @@ onclick="closeCart()">
 
 
 
+<script>
 
+
+let cart=[];
+
+
+
+function addToCart(name,price){
+
+
+let item=cart.find(
+product=>product.name===name
+);
+
+
+
+if(item){
+
+item.qty++;
+
+}
+
+else{
+
+cart.push({
+
+name:name,
+price:price,
+qty:1
+
+});
+
+}
+
+
+
+updateCart();
+
+
+alert(name+" ditambah ke cart");
+
+
+}
+
+
+
+
+function updateCart(){
+
+
+let html="";
+
+let total=0;
+
+let count=0;
+
+
+
+cart.forEach((item,index)=>{
+
+
+html+=`
+
+<div class="cart-item">
+
+<div>
+
+<b>${item.name}</b>
+
+<br>
+
+RM${item.price} x ${item.qty}
+
+</div>
+
+
+<button class="remove"
+onclick="removeCart(${index})">
+
+X
+
+</button>
+
+
+</div>
+
+`;
+
+
+
+total += item.price * item.qty;
+
+count += item.qty;
+
+
+});
+
+
+
+if(cart.length==0){
+
+html="Cart kosong";
+
+}
+
+
+
+document.getElementById("cartItems").innerHTML=html;
+
+
+document.getElementById("cartTotal").innerHTML=total;
+
+
+document.getElementById("cartCount").innerHTML=count;
+
+
+
+}
+
+
+
+
+function removeCart(index){
+
+cart.splice(index,1);
+
+updateCart();
+
+}
+
+
+
+
+function checkout(){
+
+
+let message=
+"Saya ingin order Puteri Popia:%0A%0A";
+
+
+let total=0;
+
+
+cart.forEach(item=>{
+
+
+message += 
+item.name+
+" x "+
+item.qty+
+" = RM"+
+(item.price*item.qty)
++
+"%0A";
+
+
+total+=item.price*item.qty;
+
+
+});
+
+
+
+message+=
+"%0ATotal: RM"+
+total;
+
+
+
+window.open(
+
+"https://wa.me/60123456789?text="
++
+message
+
+);
+
+
+
+}
+
+
+
+</script>
 
 
 
