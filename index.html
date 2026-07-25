@@ -2,6 +2,11 @@
 <html lang="ms">
 <head>
 
+
+  <meta name="description"
+content="Puteri Popia menyediakan popia homemade premium, popia nestum, popia cheese dan biskut homemade fresh. Order melalui WhatsApp.">
+  <meta name="theme-color" content="#b23b62">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -300,35 +305,34 @@ transform:scale(1.05);
 
 .cart-floating{
 
+position:fixed;
 
 right:20px;
-
 bottom:90px;
 
-
 background:
-
 linear-gradient(
 135deg,
 #d86b8b,
 #b23b62
 );
 
+color:white;
 
-padding:18px 28px;
-
+padding:15px 25px;
 
 border-radius:50px;
 
-
 box-shadow:
-
 0 10px 30px #d86b8b88;
 
+animation:float 2s infinite;
 
-animation:
-float 2s infinite;
+cursor:pointer;
 
+z-index:999;
+
+font-weight:bold;
 
 }
 
@@ -995,11 +999,72 @@ color:#777;
 }
 
 
+#cartCount{
+
+background:#ffd166;
+
+color:#5a3427;
+
+padding:3px 8px;
+
+border-radius:50%;
+
+font-size:12px;
+
+margin-left:5px;
+
+}
 
 
 
+  @media(max-width:600px){
+
+.hero h1{
+
+font-size:38px;
+
+}
+
+.hero p{
+
+font-size:16px;
+
+}
+
+}
 
 
+
+.card::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+border-radius:30px;
+
+background:
+linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,.5),
+transparent
+);
+
+transform:translateX(-100%);
+
+transition:.6s;
+
+}
+
+
+.card:hover::after{
+
+transform:translateX(100%);
+
+}
 
 
 
@@ -1068,11 +1133,6 @@ Dibuat fresh dengan rasa yang membuatkan anda nak lagi
 
 
 
-<section id="produk">
-
-<h2 class="title">
-Produk Kami
-</h2>
 
 
 
@@ -1906,7 +1966,59 @@ cartBox.style.display="none";
 
 
 
+
+
+
+
+function toggleMenu(){
+
+let menu=document.querySelector(".menu");
+
+if(menu.style.display==="flex"){
+
+menu.style.display="none";
+
+}else{
+
+menu.style.display="flex";
+
+}
+
+}
+
+
+
+window.onload=function(){
+
 updateCart();
+
+}
+
+
+
+const products=[
+
+{
+name:"Popia Nestum",
+price:10,
+image:"images/nestum.jpg"
+},
+
+{
+name:"Popia Cheese",
+price:10,
+image:"images/cheese.jpg"
+},
+
+{
+name:"Biskut Homemade",
+price:15,
+image:"images/biskut.jpg"
+}
+
+];
+
+
 
 
 
