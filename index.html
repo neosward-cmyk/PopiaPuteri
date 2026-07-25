@@ -1,382 +1,101 @@
 <!DOCTYPE html>
 <html lang="ms">
-
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-Puteri Popia | Premium Popia & Homemade Snacks
-</title>
+<title>Puteri Popia | Popia Homemade Premium</title>
 
-
-<meta name="description"
-content="Puteri Popia Bakery menyediakan pastry segar, biscuit premium, kek dan dessert homemade setiap hari.">
-
-
-<link rel="manifest" href="manifest.json">
-
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-
-:root{
-
---brown:#6b3e26;
---dark:#2b2118;
---cream:#fff7ed;
---gold:#d4a017;
---pink:#f8b4c4;
---white:#ffffff;
-
-}
-
-
-
 *{
-
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
-
 }
-
-
 
 body{
-
-background:var(--cream);
-color:var(--dark);
-
+background:#fff8f3;
+color:#4b2b20;
 }
-
-
-
-/* TOP BAR */
-
-
-.topbar{
-
-background:var(--dark);
-color:white;
-padding:10px 8%;
-
-display:flex;
-justify-content:space-between;
-
-font-size:14px;
-
-}
-
 
 
 /* NAVBAR */
 
-
-.navbar{
-
-background:white;
-
+nav{
+background:#d86b8b;
 padding:15px 8%;
-
 display:flex;
 justify-content:space-between;
 align-items:center;
-
+color:white;
 position:sticky;
 top:0;
-
-z-index:1000;
-
-box-shadow:
-0 5px 20px rgba(0,0,0,.1);
-
+z-index:10;
 }
-
-
 
 .logo{
-
-display:flex;
-align-items:center;
-gap:12px;
-
+font-size:25px;
+font-weight:700;
 }
 
-
-
-.logo img{
-
-width:65px;
-height:65px;
-
-border-radius:50%;
-
-object-fit:cover;
-
-}
-
-
-
-.logo h2{
-
-font-size:28px;
-
-font-weight:800;
-
-color:var(--brown);
-
-}
-
-
-
-.logo span{
-
-display:block;
-
-font-size:12px;
-
-color:#777;
-
-}
-
-
-
-/* MENU */
-
-
-.nav-links{
-
-display:flex;
-gap:15px;
-
-}
-
-
-
-.nav-links a{
-
-text-decoration:none;
-
-color:var(--dark);
-
-font-weight:600;
-
-padding:10px 18px;
-
-border-radius:30px;
-
-transition:.3s;
-
-}
-
-
-
-.nav-links a:hover{
-
-background:var(--brown);
-
+nav a{
 color:white;
-
-transform:translateY(-3px);
-
+text-decoration:none;
+margin-left:20px;
 }
 
 
 
 /* HERO */
 
-
 .hero{
 
-
-height:90vh;
-
+min-height:85vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
 
 background:
-
 linear-gradient(
-rgba(0,0,0,.45),
-rgba(0,0,0,.45)
+rgba(255,255,255,.6),
+rgba(255,255,255,.6)
 ),
-
-url("./images/bakery-bg.jpg");
-
+url("images/banner.jpg");
 
 background-size:cover;
 
-background-position:center;
-
-
-display:flex;
-
-align-items:center;
-
-padding:0 8%;
-
-
-color:white;
-
-
 }
-
-
-
-
-.hero-content{
-
-max-width:650px;
-
-}
-
-
-
-.badge{
-
-
-background:var(--gold);
-
-padding:10px 20px;
-
-border-radius:50px;
-
-display:inline-block;
-
-font-weight:700;
-
-margin-bottom:20px;
-
-
-}
-
 
 
 .hero h1{
 
-
-font-size:60px;
-
-line-height:1.2;
-
-margin-bottom:20px;
-
+font-size:45px;
+color:#b23b62;
 
 }
-
-
-
-.hero h1 span{
-
-
-color:#ffd36a;
-
-
-}
-
-
 
 .hero p{
 
-
 font-size:18px;
-
-line-height:1.8;
-
-margin-bottom:30px;
-
+margin:20px;
 
 }
-
-
 
 
 .btn{
 
-
-display:inline-block;
-
-padding:15px 35px;
-
-border-radius:50px;
-
+background:#d86b8b;
+color:white;
+padding:14px 30px;
+border-radius:30px;
 text-decoration:none;
-
-font-weight:700;
-
-margin-right:10px;
-
-transition:.3s;
-
-
-}
-
-
-
-.btn:hover{
-
-transform:translateY(-5px);
-
-}
-
-
-
-.btn-primary{
-
-
-background:var(--gold);
-
-color:white;
-
-}
-
-
-
-.btn-secondary{
-
-
-background:white;
-
-color:var(--brown);
-
-
-}
-
-
-
-/* PROMO BAR */
-
-
-.promo-bar{
-
-
-background:
-
-linear-gradient(
-90deg,
-var(--brown),
-var(--gold)
-);
-
-
-padding:18px;
-
-color:white;
-
-text-align:center;
-
-font-weight:700;
-
+display:inline-block;
 
 }
 
@@ -384,980 +103,157 @@ font-weight:700;
 
 /* SECTION */
 
+section{
 
-.section{
-
-
-padding:80px 8%;
-
+padding:60px 8%;
 
 }
 
 
-
-.section-title{
-
+.title{
 
 text-align:center;
-
-margin-bottom:50px;
-
-
-}
-
-
-
-.section-title h2{
-
-
-font-size:42px;
-
-color:var(--brown);
-
+font-size:32px;
+margin-bottom:40px;
 
 }
 
 
 
-.section-title p{
+/* PRODUCT */
 
-color:#777;
-
-}
-
-
-
-/* STAT */
-
-
-.stats{
-
+.products{
 
 display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
-
-
-gap:25px;
-
-
-}
-
-
-
-.stat-card{
-
-
-background:white;
-
-padding:35px;
-
-border-radius:25px;
-
-text-align:center;
-
-
-box-shadow:
-
-0 10px 30px rgba(0,0,0,.08);
-
-
-}
-
-
-
-.stat-card i{
-
-
-font-size:40px;
-
-color:var(--gold);
-
-margin-bottom:15px;
-
-
-}
-
-
-
-.stat-card h3{
-
-
-font-size:35px;
-
-color:var(--brown);
-
-
-}
-
-
-
-
-
-/* PRODUCT CATEGORY */
-
-
-.categories{
-
-
-display:grid;
-
 grid-template-columns:
 repeat(auto-fit,minmax(250px,1fr));
 
-
 gap:25px;
 
-
 }
-
 
 
 .card{
 
-
 background:white;
-
-border-radius:25px;
-
-overflow:hidden;
-
-box-shadow:
-
-0 10px 30px rgba(0,0,0,.1);
-
-transition:.3s;
-
+padding:20px;
+border-radius:20px;
+box-shadow:0 10px 25px #0001;
+text-align:center;
 
 }
-
-
-
-.card:hover{
-
-transform:translateY(-10px);
-
-}
-
 
 
 .card img{
 
-
 width:100%;
-
-height:230px;
-
+height:220px;
 object-fit:cover;
-
-
-}
-
-
-
-.card-body{
-
-
-padding:25px;
-
+border-radius:15px;
 
 }
 
 
-
-.card-body i{
-
-
-font-size:35px;
-
-color:var(--gold);
-
-}
-
-
-
-.card-body h3{
-
+.card h3{
 
 margin:15px 0;
-
-color:var(--brown);
-
+color:#b23b62;
 
 }
-
-
-
-
-/* PRODUCT BUTTON */
-
-
-.product-btn{
-
-
-background:var(--brown);
-
-color:white;
-
-border:none;
-
-padding:12px 25px;
-
-border-radius:30px;
-
-cursor:pointer;
-
-font-weight:700;
-
-
-}
-
-
-
-
-
-/* FOOTER */
-
-
-.footer{
-
-
-background:var(--dark);
-
-color:white;
-
-padding:60px 8%;
-
-
-}
-
-
-
-.footer-grid{
-
-
-display:grid;
-
-grid-template-columns:
-2fr 1fr 1fr;
-
-gap:40px;
-
-
-}
-
-
-
-.footer li{
-
-
-list-style:none;
-
-margin:10px 0;
-
-
-}
-
-
-
-
-@media(max-width:768px){
-
-
-.nav-links{
-
-display:none;
-
-}
-
-
-.logo h2{
-
-font-size:20px;
-
-}
-
-
-.hero{
-
-
-height:auto;
-
-padding:100px 20px;
-
-
-}
-
-
-
-.hero h1{
-
-font-size:38px;
-
-}
-
-
-
-.hero p{
-
-font-size:15px;
-
-}
-
-
-
-.btn{
-
-display:block;
-
-text-align:center;
-
-margin:10px 0;
-
-}
-
-
-
-.section{
-
-padding:50px 20px;
-
-}
-
-
-
-.section-title h2{
-
-font-size:30px;
-
-}
-
-
-
-.footer-grid{
-
-grid-template-columns:1fr;
-
-}
-
-
-
-}
-
-
-
-
-/* =========================
-PRODUCT POPUP
-========================= */
-
-
-.product-modal{
-
-display:none;
-
-position:fixed;
-
-inset:0;
-
-background:rgba(0,0,0,.75);
-
-z-index:9999;
-
-overflow:auto;
-
-}
-
-
-
-.product-box{
-
-background:white;
-
-width:90%;
-
-max-width:1100px;
-
-margin:50px auto;
-
-padding:30px;
-
-border-radius:30px;
-
-}
-
-
-
-.product-header{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-margin-bottom:30px;
-
-}
-
-
-
-.product-header h2{
-
-color:var(--brown);
-
-font-size:32px;
-
-}
-
-
-
-.close-product{
-
-font-size:40px;
-
-cursor:pointer;
-
-}
-
-
-
-.product-list{
-
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
-
-gap:25px;
-
-
-}
-
-
-
-.product-item{
-
-background:white;
-
-border-radius:20px;
-
-overflow:hidden;
-
-box-shadow:
-0 10px 30px rgba(0,0,0,.12);
-
-
-}
-
-
-
-.product-item img{
-
-width:100%;
-
-height:200px;
-
-object-fit:cover;
-
-}
-
-
-
-.product-info{
-
-padding:20px;
-
-}
-
-
-
-.product-info h3{
-
-color:var(--brown);
-
-}
-
 
 
 .price{
 
 font-size:22px;
-
-font-weight:800;
-
-color:#d33;
-
-margin:10px 0;
+font-weight:bold;
+color:#d86b8b;
 
 }
 
 
 
-.qty-box{
 
-display:flex;
+/* ABOUT */
 
-justify-content:center;
+.about{
 
-align-items:center;
-
-gap:10px;
-
-}
-
-
-
-.qty-box button{
-
-width:35px;
-
-height:35px;
-
-border:none;
-
-border-radius:10px;
-
-background:var(--brown);
-
-color:white;
-
-font-size:20px;
-
-cursor:pointer;
-
-}
-
-
-
-.qty-input{
-
-width:50px;
-
+background:#ffe7ef;
+border-radius:30px;
 text-align:center;
 
-padding:8px;
-
-border:1px solid #ddd;
-
-border-radius:10px;
-
 }
 
 
 
-.order-btn{
+/* TESTIMONI */
 
 
-width:100%;
+.testimonial{
 
-margin-top:15px;
+background:white;
+padding:20px;
+border-radius:20px;
 
-padding:12px;
+}
 
-border:none;
 
-border-radius:30px;
+/* FOOTER */
 
-background:#25D366;
 
+footer{
+
+background:#b23b62;
 color:white;
-
-font-weight:700;
-
-cursor:pointer;
-
+text-align:center;
+padding:25px;
 
 }
 
 
+/* WHATSAPP */
 
 
-/* CART */
-
-
-.cart-floating{
-
+.wa{
 
 position:fixed;
+right:20px;
+bottom:20px;
 
-right:25px;
-
-bottom:25px;
-
-
-background:var(--brown);
-
+background:#25d366;
 color:white;
 
-border:none;
-
-padding:15px 25px;
+padding:15px 20px;
 
 border-radius:50px;
 
-font-size:17px;
+text-decoration:none;
 
-font-weight:700;
-
-z-index:10000;
-
-cursor:pointer;
-
+font-weight:bold;
 
 }
 
 
-
-
-.cart-box{
-
-
-display:none;
-
-position:fixed;
-
-right:20px;
-
-bottom:90px;
-
-width:350px;
-
-max-height:500px;
-
-overflow:auto;
-
-background:white;
-
-padding:25px;
-
-border-radius:25px;
-
-z-index:9999;
-
-
-box-shadow:
-0 15px 40px rgba(0,0,0,.25);
-
-
-}
-
-
-
-.cart-item{
-
-
-display:flex;
-
-justify-content:space-between;
-
-border-bottom:1px solid #eee;
-
-padding:15px 0;
-
-
-}
-
-
-
-.cart-total{
-
-font-size:22px;
-
-font-weight:800;
-
-color:var(--brown);
-
-margin:20px 0;
-
-}
-
-
-
-.checkout-btn{
-
-
-width:100%;
-
-padding:15px;
-
-border:none;
-
-border-radius:30px;
-
-background:#25D366;
-
-color:white;
-
-font-weight:700;
-
-cursor:pointer;
-
-
-}
-
-
-
-/* CHECKOUT POPUP */
-
-
-.checkout-modal{
-
-
-display:none;
-
-position:fixed;
-
-inset:0;
-
-background:rgba(0,0,0,.7);
-
-z-index:20000;
-
-
-}
-
-
-
-.checkout-box{
-
-
-background:white;
-
-width:90%;
-
-max-width:450px;
-
-margin:120px auto;
-
-padding:30px;
-
-border-radius:30px;
-
-text-align:center;
-
-
-}
-
-
-
-.checkout-box button{
-
-
-width:100%;
-
-padding:15px;
-
-margin:10px 0;
-
-border:none;
-
-border-radius:30px;
-
-font-weight:700;
-
-cursor:pointer;
-
-
-}
-
-
-
-.pickup{
-
-background:var(--brown);
-
-color:white;
-
-}
-
-
-
-.delivery{
-
-background:var(--gold);
-
-color:white;
-
-}
-
-
-.close-checkout{
-
-background:#ddd;
-
-}
-
-
-
-
-
-
-@media(max-width:768px){
-
-.cart-box{
-
-left:10px;
-
-right:10px;
-
-width:auto;
-
-}
-
-
-.product-box{
-
-width:95%;
-
-margin:20px auto;
-
-}
-
-
-
-}
-
-
-
-
-
-.category-filter{
-
-display:flex;
-justify-content:center;
-gap:15px;
-margin-bottom:30px;
-
-}
-
-
-.category-filter button{
-
-border:none;
-background:var(--brown);
-color:white;
-
-padding:12px 25px;
-
-border-radius:30px;
-
-font-weight:700;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-
-.category-filter button:hover{
-
-background:var(--gold);
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
 
 </style>
 
-</head>
 
+</head>
 
 
 <body>
 
 
-
-<div class="topbar">
-
-<span>
-🍞 Dibakar Segar Setiap Hari
-</span>
-
-
-<span>
-📞 011-XXXXXXX
-</span>
-
-
-</div>
-
-
-
-
-<nav class="navbar">
-
+<nav>
 
 <div class="logo">
-
-<img src="./images/logo.png">
-
-
-<h2>
-
-Puteri Popia
-
-<span>
-Bakery & Premium Treats
-</span>
-
-</h2>
-
-
+👑 Puteri Popia
 </div>
 
 
-
-<div class="nav-links">
-
-
-<a href="#home">
-🏠 Utama
-</a>
-
-
-<a href="#produk">
-🍪 Produk
-</a>
-
-
-<a href="#promo">
-🔥 Promosi
-</a>
-
-
-<a href="#contact">
-📲 Hubungi
-</a>
-
-
-<a href="#location">
-📍 Lokasi
-</a>
-
-
-
+<div>
+<a href="#produk">Produk</a>
+<a href="#tentang">Tentang</a>
+<a href="#hubungi">Order</a>
 </div>
 
 
@@ -1365,289 +261,146 @@ Bakery & Premium Treats
 
 
 
+<div class="hero">
+
+<div>
+
+<h1>
+Puteri Popia
+</h1>
+
+<p>
+Popia Crunchy Homemade<br>
+Sedap • Rangup • Premium
+</p>
 
 
-<section class="hero" id="home">
+<a class="btn"
+href="https://wa.me/60123456789">
+Order Sekarang
+</a>
 
 
-<div class="hero-content">
-
-
-<div class="badge">
-
-✨ Fresh Homemade Bakery
+</div>
 
 </div>
 
 
-<h1>
 
-Puteri Popia
+
+
+<section id="produk">
+
+<h2 class="title">
+Produk Kami
+</h2>
+
+
+
+<div class="products">
+
+
+<div class="card">
+
+<img src="images/nestum.jpg">
+
+<h3>
+Popia Nestum
+</h3>
+
+<p>
+Popia rangup disaluti nestum manis premium.
+</p>
+
+<div class="price">
+RM10 / balang
+</div>
 
 <br>
 
-<span>
-Pastry & Biscuit Premium
-</span>
+<a class="btn"
+href="https://wa.me/60123456789?text=Saya%20nak%20order%20Popia%20Nestum">
+
+Order
+
+</a>
+
+</div>
 
 
-</h1>
+
+
+
+<div class="card">
+
+<img src="images/cheese.jpg">
+
+
+<h3>
+Popia Cheese
+</h3>
 
 
 <p>
-
-Nikmati croissant lembut,
-biskut rangup, kek istimewa
-dan dessert homemade yang dibuat
-segar setiap hari.
-
+Rasa cheese creamy dengan kerangupan sempurna.
 </p>
 
 
+<div class="price">
+RM10 / balang
+</div>
 
-<a href="#"
-onclick="openProducts();return false;"
-class="btn btn-primary">
 
-🍪 Lihat Produk
+<br>
+
+<a class="btn"
+href="https://wa.me/60123456789?text=Saya%20nak%20order%20Popia%20Cheese">
+
+Order
 
 </a>
 
 
+</div>
 
-<a href="https://wa.me/"
-class="btn btn-secondary">
 
-📲 Order Sekarang
+
+
+
+
+
+<div class="card">
+
+
+<img src="images/biskut.jpg">
+
+
+<h3>
+Biskut Homemade
+</h3>
+
+
+<p>
+Biskut premium untuk minum petang.
+</p>
+
+
+<div class="price">
+RM15 / balang
+</div>
+
+
+<br>
+
+
+<a class="btn"
+href="https://wa.me/60123456789?text=Saya%20nak%20order%20Biskut">
+
+Order
 
 </a>
 
 
-
-</div>
-
-
-</section>
-
-
-
-
-<div class="promo-bar">
-
-🔥 PROMOSI MINGGUAN • FRESH BAKED • DISKAUN ISTIMEWA
-
-</div>
-
-
-
-
-
-<section class="section">
-
-
-<div class="section-title">
-
-<h2>
-Kenapa Pilih Kami?
-</h2>
-
-</div>
-
-
-
-<div class="stats">
-
-
-<div class="stat-card">
-
-<i class="fa-solid fa-cookie-bite"></i>
-
-<h3>
-50+
-</h3>
-
-<p>
-Jenis Dessert
-</p>
-
-</div>
-
-
-
-<div class="stat-card">
-
-<i class="fa-solid fa-bread-slice"></i>
-
-<h3>
-Fresh
-</h3>
-
-<p>
-Setiap Hari
-</p>
-
-</div>
-
-
-
-<div class="stat-card">
-
-<i class="fa-solid fa-heart"></i>
-
-<h3>
-100%
-</h3>
-
-<p>
-Homemade
-</p>
-
-</div>
-
-
-
-<div class="stat-card">
-
-<i class="fa-solid fa-star"></i>
-
-<h3>
-Premium
-</h3>
-
-<p>
-Quality
-</p>
-
-</div>
-
-
-
-</div>
-
-</section>
-
-
-
-
-<section class="section" id="produk">
-
-
-<div class="section-title">
-
-<h2>
-Kategori Produk
-</h2>
-
-<p>
-Pelbagai pilihan manisan untuk anda
-</p>
-
-</div>
-
-
-
-
-<div class="categories">
-
-
-
-<div class="card">
-
-
-<img src="./images/pastry.jpg">
-
-
-<div class="card-body">
-
-
-<i class="fa-solid fa-croissant"></i>
-
-
-<h3>
-Pastry
-</h3>
-
-
-<p>
-Croissant, Danish, Puff dan banyak lagi.
-</p>
-
-
-
-
-
-
-
-
-
-
-  
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="card">
-
-
-<img src="./images/biscuit.jpg">
-
-
-<div class="card-body">
-
-
-<i class="fa-solid fa-cookie"></i>
-
-
-<h3>
-Premium Biscuit
-</h3>
-
-
-<p>
-Butter cookies, chocolate cookies dan biskut raya.
-</p>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<div class="card">
-
-
-<img src="./images/cake.jpg">
-
-
-<div class="card-body">
-
-
-<i class="fa-solid fa-cake-candles"></i>
-
-
-<h3>
-Cake & Dessert
-</h3>
-
-
-<p>
-Kek, brownies dan dessert istimewa.
-</p>
-
-
-</div>
-
-
 </div>
 
 
@@ -1660,740 +413,120 @@ Kek, brownies dan dessert istimewa.
 
 
 
-<!-- PRODUCT POPUP -->
 
-<div id="productModal" class="product-modal">
 
-<div class="product-box">
+<section id="tentang">
 
 
-<div class="product-header">
-
-<h2>
-🍪 Puteri Popia Menu
-</h2>
-
-
-<span class="close-product"
-onclick="closeProducts()">
-
-×
-
-</span>
-
-
-</div>
-
-
-
-<div class="category-filter">
-
-
-<button onclick="filterProduct('all')">
-🍪 Semua
-</button>
-
-
-<button onclick="filterProduct('popia')">
-🥨 Popia
-</button>
-
-
-
-<button onclick="filterProduct('cake')">
-🍰 Kek
-</button>
-
-
-<button onclick="filterProduct('biscuit')">
-🍪 Biskut
-</button>
-
-
-
-
-
-
-
-
-
-  
-
-
-</div>
-
-
-
-<div id="productList"
-class="product-list">
-
-</div>
-
-
-
-</div>
-
-</div>
-
-
-
-
-
-
-<!-- CART -->
-
-
-<div class="cart-box"
-id="cartBox">
-
-
-<h3>
-🛒 Cart Anda
-</h3>
-
-
-<div id="cartItems">
-
-</div>
-
-
-<div id="cartTotal"
-class="cart-total">
-
-Jumlah: RM0.00
-
-</div>
-
-
-
-<button
-onclick="openCheckout()"
-class="checkout-btn">
-
-Checkout
-
-</button>
-
-
-
-</div>
-
-
-
-<button
-onclick="toggleCart()"
-class="cart-floating"
-id="cartBtn">
-
-🛒 Cart
-
-</button>
-
-
-
-
-
-<!-- CHECKOUT -->
-
-
-<div id="checkoutModal"
-class="checkout-modal">
-
-
-<div class="checkout-box">
+<div class="about">
 
 
 <h2>
-Pilih Cara Terima
+Kenapa Pilih Puteri Popia?
 </h2>
 
 
-<button
-class="pickup"
-onclick="sendWhatsApp('Self Pickup')">
+<br>
 
-🏠 Self Pickup
-
-</button>
-
-
-
-<button
-class="delivery"
-onclick="sendWhatsApp('Delivery')">
-
-🚚 Delivery
-
-</button>
-
-
-
-<button
-class="close-checkout"
-onclick="closeCheckout()">
-
-Tutup
-
-</button>
-
-
-</div>
-
-</div>
-
-
-
-
-
-
-<footer class="footer" id="contact">
-
-<div class="footer-grid">
-
-<div>
-<h2>
-Puteri Popia Bakery
-</h2>
 
 <p>
-Popia rangup homemade dengan rasa premium.
+
+✨ Dibuat fresh setiap hari<br>
+✨ Bahan berkualiti<br>
+✨ Sesuai hadiah & jamuan<br>
+✨ Rangup sampai habis
+
 </p>
 
-</div>
-
-
-<div>
-
-<h3>
-Menu
-</h3>
-
-<ul>
-
-<li>Pastry</li>
-
-<li>Biscuit</li>
-
-<li>Cake</li>
-
-<li>Dessert</li>
-
-</ul>
 
 </div>
 
 
-<div id="location">
+</section>
 
-<h3>
-Lokasi
-</h3>
 
-<p>
-📍 Kuala Lumpur, Malaysia
-</p>
+
+
+
+<section>
+
+
+<h2 class="title">
+Review Pelanggan
+</h2>
+
+
+
+<div class="testimonial">
+
+
+⭐⭐⭐⭐⭐
+
+<br><br>
+
+"Popia cheese memang sedap dan rangup. Satu balang cepat habis!"
+
+<br><br>
+
+- Sarah
+
 
 </div>
 
 
-</div>
+</section>
 
+
+
+
+
+<section id="hubungi">
+
+
+<h2 class="title">
+Order Sekarang
+</h2>
+
+
+<center>
+
+
+<a class="btn"
+
+href="https://wa.me/60123456789">
+
+📲 WhatsApp Puteri Popia
+
+</a>
+
+
+</center>
+
+
+</section>
+
+
+
+
+<footer>
+
+© 2026 Puteri Popia  
+<br>
+Homemade Premium Snacks
 
 </footer>
 
 
 
+<a class="wa"
 
+href="https://wa.me/60123456789">
 
+WhatsApp
 
+</a>
 
-
-
-
-
-
-  
-
-
-
-
-
-<script>
-
-
-let cart=[];
-
-
-
-
-
-
-let currentCategory="all";
-
-
-
-
-function openProducts(){
-
-
-document.getElementById(
-"productModal"
-).style.display="block";
-
-
-let list=document.getElementById(
-"productList"
-);
-
-
-list.innerHTML="";
-
-
-products
-.filter(p=>{
-
-return currentCategory=="all" || 
-p.category==currentCategory;
-
-})
-.forEach((p,i)=>{
-
-
-list.innerHTML+=`
-
-<div class="product-item">
-
-
-<img src="${p.image}">
-
-
-<div class="product-info">
-
-
-<h3>${p.name}</h3>
-
-
-<div class="price">
-
-RM ${p.price.toFixed(2)}
-
-</div>
-
-
-<div class="qty-box">
-
-
-<button onclick="minusQty(${i})">
--
-</button>
-
-
-<input 
-id="qty${i}"
-class="qty-input"
-value="1">
-
-
-<button onclick="plusQty(${i})">
-+
-</button>
-
-
-</div>
-
-
-
-<button
-class="order-btn"
-onclick="addCart(${p.id})"
-
-🛒 Tambah Cart
-
-</button>
-
-
-
-</div>
-
-
-</div>
-
-
-`;
-
-
-
-});
-
-
-}
-
-
-
-
-
-function closeProducts(){
-
-document.getElementById(
-"productModal"
-).style.display="none";
-
-}
-
-
-
-
-
-function plusQty(i){
-
-let q=document.getElementById(
-"qty"+i
-);
-
-q.value++;
-
-}
-
-
-
-function minusQty(i){
-
-let q=document.getElementById(
-"qty"+i
-);
-
-
-if(q.value>1){
-
-q.value--;
-
-}
-
-}
-
-
-
-
-function addCart(i){
-
-
-let qty=
-Number(
-document.getElementById("qty"+i).value
-);
-
-
-
-let item=products[i];
-
-
-let exist=cart.find(
-x=>x.name==item.name
-);
-
-
-
-if(exist){
-
-exist.qty+=qty;
-
-
-}else{
-
-
-cart.push({
-
-name:item.name,
-
-price:item.price,
-
-qty:qty
-
-
-});
-
-
-}
-
-
-updateCart();
-
-
-alert(
-item.name+" ditambah ke cart"
-);
-
-
-}
-
-
-
-
-
-function updateCart(){
-
-
-let box=document.getElementById(
-"cartItems"
-);
-
-
-box.innerHTML="";
-
-
-let total=0;
-
-
-cart.forEach((item,index)=>{
-
-
-total+=item.price*item.qty;
-
-
-
-box.innerHTML+=`
-
-<div class="cart-item">
-
-
-<span>
-
-${item.name}
-
-<br>
-
-${item.qty} x RM${item.price}
-
-
-</span>
-
-
-<b>
-
-RM${(item.qty*item.price).toFixed(2)}
-
-</b>
-
-
-</div>
-
-
-`;
-
-
-
-});
-
-
-
-document.getElementById(
-"cartTotal"
-).innerHTML=
-
-"Jumlah: RM"+total.toFixed(2);
-
-
-
-document.getElementById(
-"cartBtn"
-).innerHTML=
-
-"🛒 Cart ("+cart.length+")";
-
-
-
-}
-
-
-
-
-function toggleCart(){
-
-
-let box=document.getElementById(
-"cartBox"
-);
-
-
-box.style.display =
-box.style.display=="block"
-?
-"none"
-:
-"block";
-
-
-}
-
-
-
-
-
-function openCheckout(){
-
-
-if(cart.length==0){
-
-alert("Cart masih kosong");
-
-return;
-
-}
-
-
-document.getElementById(
-"checkoutModal"
-).style.display="block";
-
-
-}
-
-
-
-function closeCheckout(){
-
-
-document.getElementById(
-"checkoutModal"
-).style.display="none";
-
-
-}
-
-
-
-
-
-function sendWhatsApp(method){
-
-
-let text=
-"*Tempahan Puteri Popia Bakery*%0A%0A";
-
-
-let total=0;
-
-
-
-cart.forEach(item=>{
-
-
-text+=
-item.name+
-" x "+
-item.qty+
-"%0A";
-
-
-total+=item.price*item.qty;
-
-
-});
-
-
-
-text+=
-
-"%0AKaedah: "+
-method+
-
-"%0AJumlah: RM"+
-total.toFixed(2);
-
-
-
-window.open(
-
-"https://wa.me/?text="+text,
-
-"_blank"
-
-);
-
-
-}
-
-
-
-function filterProduct(category){
-
-currentCategory=category;
-
-openProducts();
-
-}
-
-
-
-
-
-const products=[
-
-
-{
-name:"Popia Nestum",
-category:"popia",
-price:15,
-image:"./images/popia-nestum.jpg"
-},
-
-
-{
-name:"Popia Cheese",
-category:"popia",
-price:15,
-image:"./images/popia-cheese.jpg"
-},
-
-
-{
-name:"Brownies Premium",
-category:"cake",
-price:25,
-image:"./images/brownies.jpg"
-},
-
-
-{
-name:"Chocolate Cookies",
-category:"biscuit",
-price:18,
-image:"./images/cookies.jpg"
-}
-
-
-];
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-  
-
-</script>
-
-
-  
 
 
 </body>
-
 </html>
-
-
-
-
-
-
-
