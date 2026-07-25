@@ -137,9 +137,21 @@ gap:25px;
 
 background:white;
 padding:20px;
-border-radius:20px;
-box-shadow:0 10px 25px #0001;
+border-radius:25px;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.08);
+
 text-align:center;
+
+transition:.3s;
+
+}
+
+
+.card:hover{
+
+transform:translateY(-10px);
 
 }
 
@@ -234,6 +246,80 @@ font-weight:bold;
 
 
 
+.hamburger{
+display:none;
+font-size:25px;
+cursor:pointer;
+}
+
+
+@media(max-width:700px){
+
+nav{
+padding:15px 5%;
+}
+
+
+.menu{
+
+position:absolute;
+top:65px;
+left:0;
+width:100%;
+background:#d86b8b;
+
+display:none;
+flex-direction:column;
+text-align:center;
+
+}
+
+
+.menu a{
+
+padding:15px;
+display:block;
+
+}
+
+
+.hamburger{
+display:block;
+}
+
+
+}
+
+
+
+.badge{
+
+background:#ffd166;
+padding:5px 15px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
 </style>
 
 
@@ -249,16 +335,19 @@ font-weight:bold;
 👑 Puteri Popia
 </div>
 
-
-<div>
+<div class="menu">
 <a href="#produk">Produk</a>
 <a href="#tentang">Tentang</a>
 <a href="#hubungi">Order</a>
 </div>
 
 
-</nav>
+<div class="hamburger" onclick="toggleMenu()">
+☰
+</div>
 
+
+</nav>
 
 
 <div class="hero">
@@ -270,13 +359,14 @@ Puteri Popia
 </h1>
 
 <p>
-Popia Crunchy Homemade<br>
-Sedap • Rangup • Premium
+✨ Popia Homemade Premium ✨
+<br>
+Dibuat fresh dengan rasa yang membuatkan anda nak lagi
 </p>
 
 
 <a class="btn"
-href="https://wa.me/60123456789">
+href="https://wa.me/0149428630">
 Order Sekarang
 </a>
 
@@ -302,6 +392,10 @@ Produk Kami
 
 <div class="card">
 
+<span class="badge">
+BEST SELLER
+</span>
+
 <img src="images/nestum.jpg">
 
 <h3>
@@ -319,7 +413,7 @@ RM10 / balang
 <br>
 
 <a class="btn"
-href="https://wa.me/60123456789?text=Saya%20nak%20order%20Popia%20Nestum">
+href="https://wa.me/0149428630?text=Saya%20nak%20order%20Popia%20Nestum">
 
 Order
 
@@ -354,7 +448,7 @@ RM10 / balang
 <br>
 
 <a class="btn"
-href="https://wa.me/60123456789?text=Saya%20nak%20order%20Popia%20Cheese">
+href="https://wa.me/0149428630?text=Saya%20nak%20order%20Popia%20Cheese">
 
 Order
 
@@ -394,7 +488,7 @@ RM15 / balang
 
 
 <a class="btn"
-href="https://wa.me/60123456789?text=Saya%20nak%20order%20Biskut">
+href="https://wa.me/0149428630?text=Saya%20nak%20order%20Biskut">
 
 Order
 
@@ -493,7 +587,7 @@ Order Sekarang
 
 <a class="btn"
 
-href="https://wa.me/60123456789">
+href="https://wa.me/0149428630">
 
 📲 WhatsApp Puteri Popia
 
@@ -520,12 +614,37 @@ Homemade Premium Snacks
 
 <a class="wa"
 
-href="https://wa.me/60123456789">
+href="https://wa.me/0149428630">
 
 WhatsApp
 
 </a>
 
+
+<script>
+
+function toggleMenu(){
+
+let menu=document.querySelector(".menu");
+
+if(menu.style.display=="flex"){
+menu.style.display="none";
+}
+
+else{
+menu.style.display="flex";
+}
+
+}
+
+</script>
+
+
+
+
+
+
+  
 
 
 </body>
