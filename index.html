@@ -865,6 +865,31 @@ window.open(
 <div class="cart-box">
 
 
+<div id="cartItems">
+
+Belum ada produk
+
+</div>
+
+
+<h3>
+Jumlah:
+RM <span id="cartTotal">0</span>
+</h3>
+
+
+<button class="btn"
+onclick="checkout()">
+
+Checkout WhatsApp
+
+</button>
+
+
+
+  
+
+
 <span class="close"
 onclick="closeCart()">
 ×
@@ -884,8 +909,8 @@ onclick="closeCart()">
 <h3>Popia Nestum</h3>
 <p>RM10 / balang</p>
 
-<button onclick="order('Popia Nestum')">
-Tambah Order
+<button onclick="addToCart('Popia Nestum',10)">
+🛒 Add To Cart
 </button>
 
 </div>
@@ -903,8 +928,8 @@ Tambah Order
 <h3>Popia Cheese</h3>
 <p>RM10 / balang</p>
 
-<button onclick="order('Popia Cheese')">
-Tambah Order
+<button onclick="addToCart('Popia Cheese',10)">
+🛒 Add To Cart
 </button>
 
 </div>
@@ -922,8 +947,8 @@ Tambah Order
 <h3>Biskut Homemade</h3>
 <p>RM15 / balang</p>
 
-<button onclick="order('Biskut Homemade')">
-Tambah Order
+<button onclick="addToCart('Biskut Homemade',15)">
+🛒 Add To Cart
 </button>
 
 </div>
@@ -938,7 +963,12 @@ Tambah Order
 
 
 
+<div class="cart-floating" onclick="openCart()">
 
+🛒 Cart 
+<span id="cartCount">0</span>
+
+</div>
 
 
 
