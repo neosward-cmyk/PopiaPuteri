@@ -1654,11 +1654,178 @@ background-attachment:scroll;
 }
 
 
+/* =========================
+   OPTIMIZE PRODUK SECTION
+========================= */
+
+#produk{
+padding-top:40px;
+padding-bottom:40px;
+}
+
+
+#produk .title{
+
+margin-bottom:25px;
+
+font-size:28px;
+
+}
+
+
+/* Product Grid */
+
+.products{
+
+grid-template-columns:
+repeat(auto-fit,minmax(200px,1fr));
+
+gap:18px;
+
+}
+
+
+/* Product Card */
+
+.products .card{
+
+padding:15px;
+
+border-radius:22px;
+
+min-height:auto;
+
+}
+
+
+/* Product Image */
+
+.products .card img{
+
+width:130px;
+
+height:130px;
+
+object-fit:cover;
+
+margin:auto;
+
+display:block;
+
+border-radius:20px;
+
+}
 
 
 
+/* Product Name */
+
+.products .card h3{
+
+font-size:18px;
+
+margin:10px 0 8px;
+
+}
 
 
+
+/* Description */
+
+.products .card p{
+
+font-size:13px;
+
+line-height:1.4;
+
+margin-bottom:8px;
+
+}
+
+
+
+/* Price */
+
+.products .price{
+
+font-size:18px;
+
+}
+
+
+
+/* Button */
+
+.products .btn{
+
+padding:10px 22px;
+
+font-size:13px;
+
+margin-top:5px;
+
+}
+
+
+
+@media(max-width:600px){
+
+#produk{
+
+padding:30px 5%;
+
+}
+
+
+.products{
+
+grid-template-columns:
+repeat(2,1fr);
+
+gap:12px;
+
+}
+
+
+.products .card{
+
+padding:12px;
+
+}
+
+
+.products .card img{
+
+width:100px;
+
+height:100px;
+
+}
+
+
+.products .card h3{
+
+font-size:15px;
+
+}
+
+
+.products .card p{
+
+font-size:12px;
+
+}
+
+
+.products .btn{
+
+padding:8px 14px;
+
+font-size:12px;
+
+}
+
+}
 
 
 
