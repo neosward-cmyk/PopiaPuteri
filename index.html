@@ -492,7 +492,36 @@ padding:5px 10px;
 }
 
 
+@media(max-width:600px){
 
+.cart-box{
+
+margin:20% auto;
+
+max-height:75vh;
+
+overflow-y:auto;
+
+}
+
+
+.cart-product{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+
+.cart-product img{
+
+width:150px;
+height:150px;
+
+}
+
+}
 
 
 
@@ -1149,9 +1178,8 @@ ${item.qty}
 Subtotal:
 RM${item.price * item.qty}
 
-<br>
 
-Subtotal: RM${item.price * item.qty}
+
 
 </div>
 
@@ -1209,10 +1237,11 @@ function removeCart(index){
 
 cart.splice(index,1);
 
+saveCart();
+
 updateCart();
 
 }
-
 
 
 
@@ -1303,7 +1332,7 @@ document.getElementById("cartModal").style.display="none";
 
 
 
-  function changeQty(index,value){
+function changeQty(index,value){
 
 cart[index].qty += value;
 
@@ -1315,10 +1344,11 @@ cart.splice(index,1);
 }
 
 
+saveCart();
+
 updateCart();
 
 }
-
 
 
 
@@ -1338,14 +1368,45 @@ document.getElementById("productModal").style.display="none";
 
 
 
+function saveCart(){
+
+localStorage.setItem(
+"puteriCart",
+JSON.stringify(cart)
+);
+
+}
+
+
+window.onclick=function(event){
+
+let product =
+document.getElementById("productModal");
+
+
+let cartBox =
+document.getElementById("cartModal");
+
+
+if(event.target == product){
+
+product.style.display="none";
+
+}
+
+
+if(event.target == cartBox){
+
+cartBox.style.display="none";
+
+}
+
+
+}
 
 
 
-
-
-
-
-
+updateCart();
 
 
 
