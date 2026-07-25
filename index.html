@@ -548,11 +548,8 @@ Dibuat fresh dengan rasa yang membuatkan anda nak lagi
 </p>
 
 
-<button class="btn"
-onclick="openCart()">
-
+<button class="btn" onclick="openProducts()">
 🛍️ Lihat Produk
-
 </button>
 
 </div>
@@ -811,6 +808,148 @@ Order Promo
 </section>
 
 
+
+<div id="productModal" class="cart-modal">
+
+
+<div class="cart-box">
+
+
+<span class="close" onclick="closeProducts()">
+×
+</span>
+
+
+<h2>
+🛍️ Semua Produk Puteri Popia
+</h2>
+
+
+
+<div class="cart-product">
+
+<img src="images/nestum.jpg">
+
+<div>
+
+<h3>
+Popia Nestum
+</h3>
+
+<p>
+RM10 / balang
+</p>
+
+
+<button class="btn"
+onclick="addToCart('Popia Nestum',10)">
+🛒 Add To Cart
+</button>
+
+
+</div>
+
+</div>
+
+
+
+
+<div class="cart-product">
+
+<img src="images/cheese.jpg">
+
+
+<div>
+
+<h3>
+Popia Cheese
+</h3>
+
+
+<p>
+RM10 / balang
+</p>
+
+
+<button class="btn"
+onclick="addToCart('Popia Cheese',10)">
+🛒 Add To Cart
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="cart-product">
+
+<img src="images/biskut.jpg">
+
+
+<div>
+
+<h3>
+Biskut Homemade
+</h3>
+
+
+<p>
+RM15 / balang
+</p>
+
+
+<button class="btn"
+onclick="addToCart('Biskut Homemade',15)">
+🛒 Add To Cart
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
 <div id="cartModal" class="cart-modal">
 
 
@@ -963,8 +1102,6 @@ updateCart();
 JSON.stringify(cart)
 );
 
-
-openCart();
 
 
 }
@@ -1185,7 +1322,18 @@ updateCart();
 
 
 
+function openProducts(){
 
+document.getElementById("productModal").style.display="block";
+
+}
+
+
+function closeProducts(){
+
+document.getElementById("productModal").style.display="none";
+
+}
 
 
 
