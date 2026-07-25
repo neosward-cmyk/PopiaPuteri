@@ -594,13 +594,10 @@ RM10 / balang
 
 <br>
 
-<a class="btn"
-href="https://wa.me/0149428630?text=Saya%20nak%20order%20Popia%20Nestum">
-
-Order
-
-</a>
-
+<button class="btn"
+onclick="addToCart('Popia Nestum',10)">
+🛒 Add To Cart
+</button>
 </div>
 
 
@@ -629,12 +626,10 @@ RM10 / balang
 
 <br>
 
-<a class="btn"
-href="https://wa.me/0149428630?text=Saya%20nak%20order%20Popia%20Cheese">
-
-Order
-
-</a>
+<button class="btn"
+onclick="addToCart('Popia Cheese',10)">
+🛒 Add To Cart
+</button>
 
 
 </div>
@@ -669,13 +664,10 @@ RM15 / balang
 <br>
 
 
-<a class="btn"
-href="https://wa.me/0149428630?text=Saya%20nak%20order%20Biskut">
-
-Order
-
-</a>
-
+<button class="btn"
+onclick="addToCart('Biskut Homemade',15)">
+🛒 Add To Cart
+</button>
 
 </div>
 
@@ -769,7 +761,7 @@ Order Sekarang
 
 <a class="btn"
 
-href="https://wa.me/0149428630">
+href="https://wa.me/60149428630">
 
 📲 WhatsApp Puteri Popia
 
@@ -817,7 +809,55 @@ Order Promo
 </section>
 
 
+<div id="cartModal" class="cart-modal">
 
+
+<div class="cart-box">
+
+
+<span class="close" onclick="closeCart()">
+×
+</span>
+
+
+<h2>
+🛒 Cart Puteri Popia
+</h2>
+
+
+<div id="cartItems">
+
+Cart kosong
+
+</div>
+
+
+
+<h3>
+Jumlah:
+RM <span id="cartTotal">
+0.00
+</span>
+
+</h3>
+
+
+<br>
+
+
+<button class="btn"
+onclick="checkout()">
+
+Checkout WhatsApp
+
+</button>
+
+
+
+</div>
+
+
+</div>
 
 
 
@@ -837,7 +877,7 @@ Homemade Premium Snacks
 
 <a class="wa"
 
-href="https://wa.me/0149428630">
+href="https://wa.me/60149428630">
 
 WhatsApp
 
@@ -1022,7 +1062,7 @@ total.toFixed(2);
 
 
 
-let phone="60123456789";
+let phone="60149428630";
 
 
 
@@ -1041,11 +1081,60 @@ message
 
 
 
+function openCart(){
+
+document.getElementById("cartModal").style.display="block";
+
+}
+
+
+
+function closeCart(){
+
+document.getElementById("cartModal").style.display="none";
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
 </script>
 
 
 
+<div class="cart-floating"
+onclick="openCart()">
 
+🛒 Cart
+
+<span id="cartCount">
+0
+</span>
+
+</div>
 
 
 
