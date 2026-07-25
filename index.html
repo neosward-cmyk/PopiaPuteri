@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-Sweet Crumbs Bakery | Premium Pastry & Biscuit
+Sweet Crumbs | Premium Popia & Homemade Snacks
 </title>
 
 
@@ -1649,8 +1649,17 @@ onclick="closeProducts()">
 
 
 
-<div id="productList"
-class="product-list">
+<div class="category-filter">
+
+<button onclick="filterProduct('all')">
+🍪 Semua Produk
+</button>
+
+
+<button onclick="filterProduct('popia')">
+🥨 Popia Rangup
+</button>
+
 
 </div>
 
@@ -1781,7 +1790,7 @@ Sweet Crumbs Bakery
 </h2>
 
 <p>
-Premium pastry, biscuit dan dessert homemade.
+Popia rangup homemade dengan rasa premium.
 </p>
 
 </div>
@@ -1893,7 +1902,14 @@ let list=document.getElementById(
 list.innerHTML="";
 
 
-products.forEach((p,i)=>{
+products
+.filter(p=>{
+
+return currentCategory=="all" || 
+p.category==currentCategory;
+
+})
+.forEach((p,i)=>{
 
 
 list.innerHTML+=`
@@ -2252,7 +2268,29 @@ window.open(
 
 
 
+function filterProduct(category){
 
+currentCategory=category;
+
+openProducts();
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
 
