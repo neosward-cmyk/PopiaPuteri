@@ -1224,7 +1224,40 @@ margin:20px auto;
 
 
 
+.category-filter{
 
+display:flex;
+justify-content:center;
+gap:15px;
+margin-bottom:30px;
+
+}
+
+
+.category-filter button{
+
+border:none;
+background:var(--brown);
+color:white;
+
+padding:12px 25px;
+
+border-radius:30px;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+.category-filter button:hover{
+
+background:var(--gold);
+
+}
 
 
 
@@ -1540,6 +1573,15 @@ Croissant, Danish, Puff dan banyak lagi.
 </p>
 
 
+
+
+
+
+
+
+
+
+  
 </div>
 
 
@@ -2281,7 +2323,42 @@ openProducts();
 
 
 
+const products=[
 
+
+{
+name:"Popia Nestum",
+category:"popia",
+price:15,
+image:"./images/popia-nestum.jpg"
+},
+
+
+{
+name:"Popia Cheese",
+category:"popia",
+price:15,
+image:"./images/popia-cheese.jpg"
+},
+
+
+{
+name:"Brownies Premium",
+category:"cake",
+price:25,
+image:"./images/brownies.jpg"
+},
+
+
+{
+name:"Chocolate Cookies",
+category:"biscuit",
+price:18,
+image:"./images/cookies.jpg"
+}
+
+
+];
 
 
 
