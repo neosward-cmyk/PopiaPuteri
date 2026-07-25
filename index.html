@@ -844,233 +844,25 @@ WhatsApp
 </a>
 
 
-<script>
-
-function toggleMenu(){
-
-let menu=document.querySelector(".menu");
-
-if(menu.style.display=="flex"){
-menu.style.display="none";
-}
-
-else{
-menu.style.display="flex";
-}
-
-}
-
-
-
 
 
 <script>
 
-
-function openCart(){
-
-document.getElementById("cartModal").style.display="block";
-
-}
+let cart = [];
 
 
-function closeCart(){
+function addToCart(name, price){
 
-document.getElementById("cartModal").style.display="none";
-
-}
-
-
-
-function order(product){
-
-let phone="60123456789";
-
-let text=
-"Saya nak order "+product+" dari Puteri Popia";
-
-
-window.open(
-"https://wa.me/"+phone+
-"?text="+encodeURIComponent(text)
+let item = cart.find(
+product => product.name === name
 );
-
-}
-
-
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-</script>
-
-
-
-
-<div id="cartModal" class="cart-modal">
-
-
-<div class="cart-box">
-
-
-<div id="cartItems">
-
-Belum ada produk
-
-</div>
-
-
-<h3>
-Jumlah:
-RM <span id="cartTotal">0</span>
-</h3>
-
-
-<button class="btn"
-onclick="checkout()">
-
-Checkout WhatsApp
-
-</button>
-
-
-
-  
-
-
-<span class="close"
-onclick="closeCart()">
-×
-</span>
-
-
-<h2>
-🛒 Produk Puteri Popia
-</h2>
-
-
-<div class="cart-product">
-
-<img src="images/nestum.jpg">
-
-<div>
-<h3>Popia Nestum</h3>
-<p>RM10 / balang</p>
-
-<button onclick="addToCart('Popia Nestum',10)">
-🛒 Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-
-
-<div class="cart-product">
-
-<img src="images/cheese.jpg">
-
-<div>
-<h3>Popia Cheese</h3>
-<p>RM10 / balang</p>
-
-<button onclick="addToCart('Popia Cheese',10)">
-🛒 Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-
-
-<div class="cart-product">
-
-<img src="images/biskut.jpg">
-
-<div>
-<h3>Biskut Homemade</h3>
-<p>RM15 / balang</p>
-
-<button onclick="addToCart('Biskut Homemade',15)">
-🛒 Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-
-</div>
-
-</div>
-
-
-
-<div class="cart-floating" onclick="openCart()">
-
-🛒 Cart 
-<span id="cartCount">0</span>
-
-</div>
-
-
-
-
-<script>
-
-
-let cart=[];
-
-
-
-function addToCart(name,price){
-
-
-let item=cart.find(
-product=>product.name===name
-);
-
 
 
 if(item){
 
 item.qty++;
 
-}
-
-else{
+}else{
 
 cart.push({
 
@@ -1083,15 +875,10 @@ qty:1
 }
 
 
-
 updateCart();
 
 
-alert(name+" ditambah ke cart");
-
-
 }
-
 
 
 
@@ -1109,7 +896,7 @@ let count=0;
 cart.forEach((item,index)=>{
 
 
-html+=`
+html += `
 
 <div class="cart-item">
 
@@ -1121,13 +908,17 @@ html+=`
 
 RM${item.price} x ${item.qty}
 
+<br>
+
+Subtotal: RM${item.price * item.qty}
+
 </div>
 
 
 <button class="remove"
 onclick="removeCart(${index})">
 
-X
+❌
 
 </button>
 
@@ -1135,7 +926,6 @@ X
 </div>
 
 `;
-
 
 
 total += item.price * item.qty;
@@ -1147,21 +937,21 @@ count += item.qty;
 
 
 
-if(cart.length==0){
+if(cart.length === 0){
 
-html="Cart kosong";
+html = "Cart kosong";
 
 }
 
 
 
-document.getElementById("cartItems").innerHTML=html;
+document.getElementById("cartItems").innerHTML = html;
 
 
-document.getElementById("cartTotal").innerHTML=total;
+document.getElementById("cartTotal").innerHTML = total.toFixed(2);
 
 
-document.getElementById("cartCount").innerHTML=count;
+document.getElementById("cartCount").innerHTML = count;
 
 
 
@@ -1184,43 +974,63 @@ updateCart();
 function checkout(){
 
 
-let message=
+
+if(cart.length === 0){
+
+alert("Cart masih kosong");
+
+return;
+
+}
+
+
+
+let message =
 "Saya ingin order Puteri Popia:%0A%0A";
 
 
 let total=0;
 
 
+
 cart.forEach(item=>{
 
 
-message += 
+message +=
+
+"🍪 "+
 item.name+
 " x "+
 item.qty+
 " = RM"+
-(item.price*item.qty)
+(item.price * item.qty)
 +
 "%0A";
 
 
-total+=item.price*item.qty;
+total += item.price * item.qty;
 
 
 });
 
 
 
-message+=
-"%0ATotal: RM"+
-total;
+message +=
+
+"%0A💰 Total: RM"+
+total.toFixed(2);
+
+
+
+let phone="60123456789";
 
 
 
 window.open(
 
-"https://wa.me/60123456789?text="
-+
+"https://wa.me/"+
+phone+
+"?text="+
 message
 
 );
@@ -1232,6 +1042,35 @@ message
 
 
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
 
 
 
