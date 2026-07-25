@@ -548,10 +548,12 @@ Dibuat fresh dengan rasa yang membuatkan anda nak lagi
 </p>
 
 
-<a class="btn"
+<button class="btn"
 onclick="openCart()">
+
 🛍️ Lihat Produk
-</a>
+
+</button>
 
 </div>
 
@@ -799,7 +801,7 @@ Combo Keluarga
 
 
 <a class="btn"
-href="https://wa.me/60123456789">
+href="https://wa.me/60149428630">
 Order Promo
 </a>
 
@@ -886,9 +888,46 @@ WhatsApp
 
 
 
+<div class="cart-floating"
+onclick="openCart()">
+
+🛒 Cart
+
+<span id="cartCount">
+0
+</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
 <script>
 
-let cart = [];
+let cart =
+JSON.parse(localStorage.getItem("puteriCart")) || [];
 
 
 function addToCart(name, price){
@@ -918,8 +957,17 @@ qty:1
 updateCart();
 
 
-}
 
+  localStorage.setItem(
+"puteriCart",
+JSON.stringify(cart)
+);
+
+
+openCart();
+
+
+}
 
 
 function updateCart(){
@@ -946,7 +994,23 @@ html += `
 
 <br>
 
-RM${item.price} x ${item.qty}
+<button onclick="changeQty(${index},-1)">
+➖
+</button>
+
+
+${item.qty}
+
+
+<button onclick="changeQty(${index},1)">
+➕
+</button>
+
+
+<br>
+
+Subtotal:
+RM${item.price * item.qty}
 
 <br>
 
@@ -996,6 +1060,10 @@ document.getElementById("cartCount").innerHTML = count;
 
 
 }
+
+
+
+  
 
 
 
@@ -1098,6 +1166,22 @@ document.getElementById("cartModal").style.display="none";
 
 
 
+  function changeQty(index,value){
+
+cart[index].qty += value;
+
+
+if(cart[index].qty <=0){
+
+cart.splice(index,1);
+
+}
+
+
+updateCart();
+
+}
+
 
 
 
@@ -1125,16 +1209,6 @@ document.getElementById("cartModal").style.display="none";
 
 
 
-<div class="cart-floating"
-onclick="openCart()">
-
-🛒 Cart
-
-<span id="cartCount">
-0
-</span>
-
-</div>
 
 
 
