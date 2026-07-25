@@ -1658,6 +1658,8 @@ let cart =
 JSON.parse(localStorage.getItem("puteriCart")) || [];
 
 
+
+
 function addToCart(name, price){
 
 let item = cart.find(
@@ -1685,16 +1687,30 @@ qty:1
 updateCart();
 
 
-
-  localStorage.setItem(
+localStorage.setItem(
 "puteriCart",
 JSON.stringify(cart)
 );
 
 
+// AUTO OPEN CART POPUP
+setTimeout(()=>{
+
+openCart();
+
+},300);
+
 
 }
 
+
+
+
+
+
+
+
+  
 
 function updateCart(){
 
