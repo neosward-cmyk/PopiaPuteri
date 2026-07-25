@@ -105,16 +105,13 @@ text-align:center;
 background:
 
 linear-gradient(
-rgba(255,240,245,.15),
-rgba(255,240,245,.15)
+rgba(255,240,245,.55),
+rgba(255,240,245,.55)
 ),
 
 url("images/banner.jpg");
 
-
-
 background-size:cover;
-
 background-position:center;
 
 
@@ -138,34 +135,37 @@ letter-spacing:3px;
 
 text-shadow:
 
-0 0 10px white,
-0 0 25px white,
-0 10px 30px rgba(178,59,98,.5);
+0 2px 5px white,
+0 0 15px white,
+0 0 30px white,
+0 10px 40px rgba(178,59,98,.8);
 
 
-animation:
-fadeDown 1s,
-glow 2s infinite alternate;
+position:relative;
+
+z-index:2;
 
 }
 
 
 .hero p{
 
-font-family:'Poppins',sans-serif;
-
 font-size:20px;
 
 font-weight:600;
 
-letter-spacing:1px;
-
-color:#5a3427;
+color:#4a2520;
 
 
 text-shadow:
 
-0 2px 10px white;
+0 2px 8px white,
+0 0 15px white;
+
+
+position:relative;
+
+z-index:2;
 
 }
 
@@ -1353,6 +1353,57 @@ box-shadow:
 }
   
 
+.hero-content{
+
+background:
+
+rgba(255,255,255,.25);
+
+
+backdrop-filter:
+
+blur(8px);
+
+
+padding:40px;
+
+border-radius:40px;
+
+
+box-shadow:
+
+0 20px 60px rgba(178,59,98,.25);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
   
@@ -1393,7 +1444,7 @@ box-shadow:
 
 <div class="hero">
 
-<div>
+<div class="hero-content">
 
 <h1>
 Puteri Popia
