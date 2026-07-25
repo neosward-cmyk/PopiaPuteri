@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="ms">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Sweet Crumbs Bakery | Premium Pastry & Biscuit
+</title>
+
+
+<meta name="description"
+content="Sweet Crumbs Bakery menyediakan pastry segar, biscuit premium, kek dan dessert homemade setiap hari.">
+
+
+<link rel="manifest" href="manifest.json">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+
+<style>
+
+
+:root{
+
+--brown:#6b3e26;
+--dark:#2b2118;
+--cream:#fff7ed;
+--gold:#d4a017;
+--pink:#f8b4c4;
+--white:#ffffff;
+
+}
+
+
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+
+}
+
+
+
+body{
+
+background:var(--cream);
+color:var(--dark);
+
+}
+
+
+
+/* TOP BAR */
+
+
+.topbar{
+
+background:var(--dark);
+color:white;
+padding:10px 8%;
+
+display:flex;
+justify-content:space-between;
+
+font-size:14px;
+
+}
+
+
+
+/* NAVBAR */
+
+
+.navbar{
+
+background:white;
+
+padding:15px 8%;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+position:sticky;
+top:0;
+
+z-index:1000;
+
+box-shadow:
+0 5px 20px rgba(0,0,0,.1);
+
+}
+
+
+
+.logo{
+
+display:flex;
+align-items:center;
+gap:12px;
+
+}
+
+
+
+.logo img{
+
+width:65px;
+height:65px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+}
+
+
+
+.logo h2{
+
+font-size:28px;
+
+font-weight:800;
+
+color:var(--brown);
+
+}
+
+
+
+.logo span{
+
+display:block;
+
+font-size:12px;
+
+color:#777;
+
+}
+
+
+
+/* MENU */
+
+
+.nav-links{
+
+display:flex;
+gap:15px;
+
+}
+
+
+
+.nav-links a{
+
+text-decoration:none;
+
+color:var(--dark);
+
+font-weight:600;
+
+padding:10px 18px;
+
+border-radius:30px;
+
+transition:.3s;
+
+}
+
+
+
+.nav-links a:hover{
+
+background:var(--brown);
+
+color:white;
+
+transform:translateY(-3px);
+
+}
+
+
+
+/* HERO */
+
+
+.hero{
+
+
+height:90vh;
+
+
+background:
+
+linear-gradient(
+rgba(0,0,0,.45),
+rgba(0,0,0,.45)
+),
+
+url("./images/bakery-bg.jpg");
+
+
+background-size:cover;
+
+background-position:center;
+
+
+display:flex;
+
+align-items:center;
+
+padding:0 8%;
+
+
+color:white;
+
+
+}
+
+
+
+
+.hero-content{
+
+max-width:650px;
+
+}
+
+
+
+.badge{
+
+
+background:var(--gold);
+
+padding:10px 20px;
+
+border-radius:50px;
+
+display:inline-block;
+
+font-weight:700;
+
+margin-bottom:20px;
+
+
+}
+
+
+
+.hero h1{
+
+
+font-size:60px;
+
+line-height:1.2;
+
+margin-bottom:20px;
+
+
+}
+
+
+
+.hero h1 span{
+
+
+color:#ffd36a;
+
+
+}
+
+
+
+.hero p{
+
+
+font-size:18px;
+
+line-height:1.8;
+
+margin-bottom:30px;
+
+
+}
+
+
+
+
+.btn{
+
+
+display:inline-block;
+
+padding:15px 35px;
+
+border-radius:50px;
+
+text-decoration:none;
+
+font-weight:700;
+
+margin-right:10px;
+
+transition:.3s;
+
+
+}
+
+
+
+.btn:hover{
+
+transform:translateY(-5px);
+
+}
+
+
+
+.btn-primary{
+
+
+background:var(--gold);
+
+color:white;
+
+}
+
+
+
+.btn-secondary{
+
+
+background:white;
+
+color:var(--brown);
+
+
+}
+
+
+
+/* PROMO BAR */
+
+
+.promo-bar{
+
+
+background:
+
+linear-gradient(
+90deg,
+var(--brown),
+var(--gold)
+);
+
+
+padding:18px;
+
+color:white;
+
+text-align:center;
+
+font-weight:700;
+
+
+}
+
+
+
+/* SECTION */
+
+
+.section{
+
+
+padding:80px 8%;
+
+
+}
+
+
+
+.section-title{
+
+
+text-align:center;
+
+margin-bottom:50px;
+
+
+}
+
+
+
+.section-title h2{
+
+
+font-size:42px;
+
+color:var(--brown);
+
+
+}
+
+
+
+.section-title p{
+
+color:#777;
+
+}
+
+
+
+/* STAT */
+
+
+.stats{
+
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+
+gap:25px;
+
+
+}
+
+
+
+.stat-card{
+
+
+background:white;
+
+padding:35px;
+
+border-radius:25px;
+
+text-align:center;
+
+
+box-shadow:
+
+0 10px 30px rgba(0,0,0,.08);
+
+
+}
+
+
+
+.stat-card i{
+
+
+font-size:40px;
+
+color:var(--gold);
+
+margin-bottom:15px;
+
+
+}
+
+
+
+.stat-card h3{
+
+
+font-size:35px;
+
+color:var(--brown);
+
+
+}
+
+
+
+
+
+/* PRODUCT CATEGORY */
+
+
+.categories{
+
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+
+gap:25px;
+
+
+}
+
+
+
+.card{
+
+
+background:white;
+
+border-radius:25px;
+
+overflow:hidden;
+
+box-shadow:
+
+0 10px 30px rgba(0,0,0,.1);
+
+transition:.3s;
+
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-10px);
+
+}
+
+
+
+.card img{
+
+
+width:100%;
+
+height:230px;
+
+object-fit:cover;
+
+
+}
+
+
+
+.card-body{
+
+
+padding:25px;
+
+
+}
+
+
+
+.card-body i{
+
+
+font-size:35px;
+
+color:var(--gold);
+
+}
+
+
+
+.card-body h3{
+
+
+margin:15px 0;
+
+color:var(--brown);
+
+
+}
+
+
+
+
+/* PRODUCT BUTTON */
+
+
+.product-btn{
+
+
+background:var(--brown);
+
+color:white;
+
+border:none;
+
+padding:12px 25px;
+
+border-radius:30px;
+
+cursor:pointer;
+
+font-weight:700;
+
+
+}
+
+
+
+
+
+/* FOOTER */
+
+
+.footer{
+
+
+background:var(--dark);
+
+color:white;
+
+padding:60px 8%;
+
+
+}
+
+
+
+.footer-grid{
+
+
+display:grid;
+
+grid-template-columns:
+2fr 1fr 1fr;
+
+gap:40px;
+
+
+}
+
+
+
+.footer li{
+
+
+list-style:none;
+
+margin:10px 0;
+
+
+}
+
+
+
+
+@media(max-width:768px){
+
+
+.nav-links{
+
+display:none;
+
+}
+
+
+.logo h2{
+
+font-size:20px;
+
+}
+
+
+.hero{
+
+
+height:auto;
+
+padding:100px 20px;
+
+
+}
+
+
+
+.hero h1{
+
+font-size:38px;
+
+}
+
+
+
+.hero p{
+
+font-size:15px;
+
+}
+
+
+
+.btn{
+
+display:block;
+
+text-align:center;
+
+margin:10px 0;
+
+}
+
+
+
+.section{
+
+padding:50px 20px;
+
+}
+
+
+
+.section-title h2{
+
+font-size:30px;
+
+}
+
+
+
+.footer-grid{
+
+grid-template-columns:1fr;
+
+}
+
+
+
+}
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="topbar">
+
+<span>
+🍞 Dibakar Segar Setiap Hari
+</span>
+
+
+<span>
+📞 011-XXXXXXX
+</span>
+
+
+</div>
+
+
+
+
+<nav class="navbar">
+
+
+<div class="logo">
+
+<img src="./images/logo.png">
+
+
+<h2>
+
+Sweet Crumbs
+
+<span>
+Bakery & Premium Treats
+</span>
+
+</h2>
+
+
+</div>
+
+
+
+<div class="nav-links">
+
+
+<a href="#home">
+🏠 Utama
+</a>
+
+
+<a href="#produk">
+🍪 Produk
+</a>
+
+
+<a href="#promo">
+🔥 Promosi
+</a>
+
+
+<a href="#contact">
+📲 Hubungi
+</a>
+
+
+<a href="#location">
+📍 Lokasi
+</a>
+
+
+
+</div>
+
+
+</nav>
+
+
+
+
+
+<section class="hero" id="home">
+
+
+<div class="hero-content">
+
+
+<div class="badge">
+
+✨ Fresh Homemade Bakery
+
+</div>
+
+
+<h1>
+
+Sweet Crumbs
+
+<br>
+
+<span>
+Pastry & Biscuit Premium
+</span>
+
+
+</h1>
+
+
+<p>
+
+Nikmati croissant lembut,
+biskut rangup, kek istimewa
+dan dessert homemade yang dibuat
+segar setiap hari.
+
+</p>
+
+
+
+<a href="#produk"
+class="btn btn-primary">
+
+🍪 Lihat Produk
+
+</a>
+
+
+
+<a href="https://wa.me/"
+class="btn btn-secondary">
+
+📲 Order Sekarang
+
+</a>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+<div class="promo-bar">
+
+🔥 PROMOSI MINGGUAN • FRESH BAKED • DISKAUN ISTIMEWA
+
+</div>
+
+
+
+
+
+<section class="section">
+
+
+<div class="section-title">
+
+<h2>
+Kenapa Pilih Kami?
+</h2>
+
+</div>
+
+
+
+<div class="stats">
+
+
+<div class="stat-card">
+
+<i class="fa-solid fa-cookie-bite"></i>
+
+<h3>
+50+
+</h3>
+
+<p>
+Jenis Dessert
+</p>
+
+</div>
+
+
+
+<div class="stat-card">
+
+<i class="fa-solid fa-bread-slice"></i>
+
+<h3>
+Fresh
+</h3>
+
+<p>
+Setiap Hari
+</p>
+
+</div>
+
+
+
+<div class="stat-card">
+
+<i class="fa-solid fa-heart"></i>
+
+<h3>
+100%
+</h3>
+
+<p>
+Homemade
+</p>
+
+</div>
+
+
+
+<div class="stat-card">
+
+<i class="fa-solid fa-star"></i>
+
+<h3>
+Premium
+</h3>
+
+<p>
+Quality
+</p>
+
+</div>
+
+
+
+</div>
+
+</section>
+
+
+
+
+<section class="section" id="produk">
+
+
+<div class="section-title">
+
+<h2>
+Kategori Produk
+</h2>
+
+<p>
+Pelbagai pilihan manisan untuk anda
+</p>
+
+</div>
+
+
+
+
+<div class="categories">
+
+
+
+<div class="card">
+
+
+<img src="./images/pastry.jpg">
+
+
+<div class="card-body">
+
+
+<i class="fa-solid fa-croissant"></i>
+
+
+<h3>
+Pastry
+</h3>
+
+
+<p>
+Croissant, Danish, Puff dan banyak lagi.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<img src="./images/biscuit.jpg">
+
+
+<div class="card-body">
+
+
+<i class="fa-solid fa-cookie"></i>
+
+
+<h3>
+Premium Biscuit
+</h3>
+
+
+<p>
+Butter cookies, chocolate cookies dan biskut raya.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<img src="./images/cake.jpg">
+
+
+<div class="card-body">
+
+
+<i class="fa-solid fa-cake-candles"></i>
+
+
+<h3>
+Cake & Dessert
+</h3>
+
+
+<p>
+Kek, brownies dan dessert istimewa.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
