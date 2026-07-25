@@ -499,23 +499,20 @@ box-shadow:0 5px 15px #0002;
 
 
 /* =========================
- PREMIUM PRODUCT POPUP
+ PREMIUM SHOP POPUP
 ========================= */
 
 .cart-modal{
 
 display:none;
-
 position:fixed;
-
 inset:0;
-
 z-index:1000;
 
 background:
-rgba(90,52,39,.55);
+rgba(40,20,30,.65);
 
-backdrop-filter:blur(8px);
+backdrop-filter:blur(10px);
 
 padding:20px;
 
@@ -527,38 +524,27 @@ overflow-y:auto;
 
 .cart-box{
 
-background:
+width:100%;
+max-width:600px;
 
+margin:30px auto;
+
+background:
 linear-gradient(
 180deg,
 #ffffff,
-#fff8f3
+#fff5f8
 );
-
-
-width:100%;
-
-max-width:550px;
-
-
-margin:40px auto;
-
-
-padding:30px;
-
 
 border-radius:35px;
 
+padding:30px;
 
 box-shadow:
-
-0 25px 70px rgba(0,0,0,.25);
-
+0 30px 80px rgba(0,0,0,.3);
 
 animation:
-
-popup .35s ease;
-
+popupShow .4s ease;
 
 position:relative;
 
@@ -571,13 +557,24 @@ position:relative;
 
 text-align:center;
 
+font-size:30px;
+
 color:#b23b62;
 
-font-size:28px;
-
-margin-bottom:25px;
+margin-bottom:30px;
 
 }
+
+
+
+.cart-box small{
+
+font-size:14px;
+
+color:#888;
+
+}
+
 
 
 
@@ -587,13 +584,11 @@ position:absolute;
 
 right:20px;
 
-top:15px;
+top:20px;
 
 
-width:40px;
-
-height:40px;
-
+width:45px;
+height:45px;
 
 display:flex;
 
@@ -602,26 +597,21 @@ align-items:center;
 justify-content:center;
 
 
-background:#ffe7ef;
-
+background:#ffe0eb;
 
 color:#b23b62;
-
 
 border-radius:50%;
 
 
-font-size:25px;
-
-font-weight:bold;
-
+font-size:30px;
 
 cursor:pointer;
+
 
 transition:.3s;
 
 }
-
 
 
 .close:hover{
@@ -636,87 +626,134 @@ transform:rotate(90deg);
 
 
 
-/* PRODUCT CARD DALAM POPUP */
+
+/* PRODUCT POPUP CARD */
+
 
 .cart-product{
-
-background:white;
 
 
 display:flex;
 
-
 align-items:center;
 
-
 gap:20px;
+
+
+background:white;
 
 
 padding:18px;
 
 
-margin:18px 0;
+margin-bottom:20px;
 
 
-border-radius:25px;
+border-radius:28px;
 
 
 box-shadow:
 
-0 10px 30px rgba(0,0,0,.08);
+0 12px 30px rgba(0,0,0,.08);
 
 
 transition:.3s;
 
 
-border:2px solid transparent;
+position:relative;
+
+
+overflow:hidden;
 
 
 }
+
+
+
+.cart-product:before{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+top:0;
+
+width:6px;
+
+height:100%;
+
+
+background:
+
+linear-gradient(
+180deg,
+#d86b8b,
+#ffd166
+);
+
+
+}
+
 
 
 
 .cart-product:hover{
 
-transform:translateY(-5px);
-
-
-border-color:#ffd166;
+transform:translateY(-8px);
 
 
 box-shadow:
 
-0 15px 35px rgba(216,107,139,.25);
+0 20px 40px rgba(216,107,139,.25);
+
 
 }
+
 
 
 
 
 .cart-product img{
 
-width:110px;
 
-height:110px;
+width:120px;
+
+height:120px;
 
 
 object-fit:cover;
 
 
-border-radius:22px;
+border-radius:25px;
+
+
+transition:.4s;
 
 
 }
 
 
 
+
+.cart-product:hover img{
+
+transform:scale(1.08);
+
+}
+
+
+
+
+
 .cart-product h3{
+
+font-size:20px;
 
 color:#b23b62;
 
-font-size:18px;
-
-margin-bottom:5px;
+margin-bottom:8px;
 
 }
 
@@ -724,37 +761,46 @@ margin-bottom:5px;
 
 .cart-product p{
 
+font-size:18px;
+
+font-weight:700;
+
 color:#d86b8b;
 
-font-weight:bold;
-
-margin-bottom:10px;
-
 }
+
 
 
 
 
 .cart-product .btn{
 
-padding:10px 18px;
+
+padding:
+
+10px 20px;
+
 
 font-size:13px;
+
+
+margin-top:8px;
+
 
 }
 
 
 
-/* ANIMATION */
 
-@keyframes popup{
+@keyframes popupShow{
+
 
 from{
 
 opacity:0;
 
 transform:
-translateY(50px)
+translateY(60px)
 scale(.9);
 
 }
@@ -770,13 +816,14 @@ scale(1);
 
 }
 
+
 }
 
 
 
 
-
 /* MOBILE */
+
 
 @media(max-width:600px){
 
@@ -784,8 +831,6 @@ scale(1);
 .cart-box{
 
 padding:20px;
-
-margin:20px auto;
 
 border-radius:30px;
 
@@ -795,9 +840,14 @@ border-radius:30px;
 
 .cart-product{
 
+
 flex-direction:column;
 
 text-align:center;
+
+
+padding:20px;
+
 
 }
 
@@ -805,9 +855,11 @@ text-align:center;
 
 .cart-product img{
 
-width:160px;
 
-height:160px;
+width:170px;
+
+height:170px;
+
 
 }
 
@@ -920,7 +972,27 @@ color:#777;
 }
 
 
+.shop-header{
 
+text-align:center;
+
+margin-bottom:25px;
+
+}
+
+
+.shop-header h2{
+
+font-size:32px;
+
+}
+
+
+.shop-header p{
+
+color:#777;
+
+}
 
 
 
@@ -1031,7 +1103,7 @@ RM10 / balang
 
 <button class="btn"
 onclick="addToCart('Popia Nestum',10)">
-🛒 Add To Cart
+🛒 Tambah Cart
 </button>
 </div>
 
@@ -1063,7 +1135,7 @@ RM10 / balang
 
 <button class="btn"
 onclick="addToCart('Popia Cheese',10)">
-🛒 Add To Cart
+🛒 Tambah Cart
 </button>
 
 
@@ -1101,7 +1173,7 @@ RM15 / balang
 
 <button class="btn"
 onclick="addToCart('Biskut Homemade',15)">
-🛒 Add To Cart
+🛒 Tambah Cart
 </button>
 
 </div>
@@ -1270,14 +1342,17 @@ Order Promo
 </span>
 
 
+<div class="shop-header">
+
 <h2>
 👑 Puteri Popia
-<br>
-<small>
-Pilih Snack Kegemaran Anda
-</small>
 </h2>
 
+<p>
+Pilih Popia Favourite Anda 😋
+</p>
+
+</div>
 
 
 <div class="cart-product">
@@ -1297,7 +1372,7 @@ RM10 / balang
 
 <button class="btn"
 onclick="addToCart('Popia Nestum',10)">
-🛒 Add To Cart
+🛒 Tambah Cart
 </button>
 
 
@@ -1327,7 +1402,7 @@ RM10 / balang
 
 <button class="btn"
 onclick="addToCart('Popia Cheese',10)">
-🛒 Add To Cart
+🛒 Tambah Cart
 </button>
 
 
@@ -1359,7 +1434,7 @@ RM15 / balang
 
 <button class="btn"
 onclick="addToCart('Biskut Homemade',15)">
-🛒 Add To Cart
+🛒 Tambah Cart
 </button>
 
 
