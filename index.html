@@ -1829,7 +1829,303 @@ font-size:12px;
 
 
 
+/* =========================
+   PREMIUM ELEGANT NAVBAR
+========================= */
 
+nav{
+
+background:
+linear-gradient(
+135deg,
+rgba(178,59,98,.92),
+rgba(216,107,139,.88)
+);
+
+backdrop-filter:blur(20px);
+
+padding:15px 8%;
+
+border-bottom:
+1px solid rgba(255,255,255,.35);
+
+box-shadow:
+
+0 8px 35px rgba(178,59,98,.25);
+
+transition:.4s;
+
+}
+
+
+/* LOGO */
+
+.logo{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+}
+
+
+.logo img{
+
+width:58px;
+
+height:58px;
+
+border-radius:50%;
+
+padding:5px;
+
+background:white;
+
+box-shadow:
+
+0 0 20px rgba(255,255,255,.8);
+
+transition:.4s;
+
+}
+
+
+.logo img:hover{
+
+transform:
+
+rotate(10deg)
+scale(1.08);
+
+}
+
+
+
+.logo span{
+
+font-family:'Great Vibes',cursive;
+
+font-size:42px;
+
+color:white;
+
+letter-spacing:1px;
+
+
+text-shadow:
+
+0 5px 15px rgba(0,0,0,.25);
+
+}
+
+
+
+/* MENU */
+
+.menu{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+}
+
+
+
+.menu a{
+
+position:relative;
+
+color:white;
+
+font-weight:600;
+
+font-size:15px;
+
+padding:10px 18px;
+
+border-radius:30px;
+
+transition:.35s;
+
+}
+
+
+
+/* HOVER EFFECT */
+
+.menu a:hover{
+
+background:
+
+rgba(255,255,255,.18);
+
+transform:
+
+translateY(-3px);
+
+box-shadow:
+
+0 8px 20px rgba(0,0,0,.15);
+
+}
+
+
+
+/* UNDERLINE ANIMATION */
+
+.menu a::after{
+
+content:"";
+
+position:absolute;
+
+bottom:5px;
+
+left:50%;
+
+width:0;
+
+height:2px;
+
+background:white;
+
+transition:.35s;
+
+transform:translateX(-50%);
+
+}
+
+
+.menu a:hover::after{
+
+width:60%;
+
+}
+
+
+
+/* HAMBURGER */
+
+.hamburger{
+
+width:45px;
+
+height:45px;
+
+display:none;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:50%;
+
+background:
+
+rgba(255,255,255,.18);
+
+color:white;
+
+font-size:25px;
+
+backdrop-filter:blur(10px);
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+
+nav{
+
+padding:12px 5%;
+
+}
+
+
+.logo span{
+
+font-size:34px;
+
+}
+
+
+.logo img{
+
+width:50px;
+
+height:50px;
+
+}
+
+
+
+.hamburger{
+
+display:flex;
+
+}
+
+
+
+.menu{
+
+position:absolute;
+
+top:75px;
+
+left:5%;
+
+right:5%;
+
+
+background:
+
+linear-gradient(
+135deg,
+#d86b8b,
+#b23b62
+);
+
+
+border-radius:25px;
+
+
+padding:15px;
+
+
+display:none;
+
+flex-direction:column;
+
+
+box-shadow:
+
+0 20px 50px rgba(0,0,0,.25);
+
+}
+
+
+.menu a{
+
+width:100%;
+
+text-align:center;
+
+padding:14px;
+
+}
+
+
+}
 
 
 
@@ -2851,6 +3147,56 @@ image:"images/biskut.jpg"
 
 ];
 
+
+
+
+
+window.addEventListener("scroll",()=>{
+
+let nav=document.querySelector("nav");
+
+if(window.scrollY>50){
+
+nav.style.padding="10px 8%";
+
+nav.style.background=
+"rgba(178,59,98,.95)";
+
+}else{
+
+nav.style.padding="15px 8%";
+
+}
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
 
