@@ -4192,7 +4192,141 @@ footer{
 }
 
 
+/* =====================================================
+   PREMIUM CART EMPTY POPUP
+===================================================== */
 
+.cart-empty-modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:999999;
+
+    background:rgba(30,1,2,.72);
+    backdrop-filter:blur(10px);
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+}
+
+.cart-empty-box{
+    width:100%;
+    max-width:430px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffdf8,
+            #fff4d6
+        );
+
+    border-radius:30px;
+
+    padding:32px 25px;
+
+    text-align:center;
+
+    border:
+        2px solid rgba(255,179,0,.55);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.5),
+        0 0 40px rgba(255,179,0,.25);
+
+    animation:cartEmptyShow .35s ease;
+}
+
+
+.cart-empty-icon{
+    width:75px;
+    height:75px;
+
+    margin:0 auto 18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #FFB300,
+            #FF7A00
+        );
+
+    font-size:36px;
+
+    box-shadow:
+        0 10px 30px rgba(255,122,0,.35);
+}
+
+
+.cart-empty-box h2{
+    color:#65080A;
+
+    font-size:24px;
+
+    margin-bottom:10px;
+}
+
+
+.cart-empty-box p{
+    color:#6b4b4b;
+
+    font-size:14px;
+
+    line-height:1.7;
+
+    margin-bottom:22px;
+}
+
+
+.cart-empty-box .btn{
+    min-width:180px;
+}
+
+
+@keyframes cartEmptyShow{
+
+    from{
+        opacity:0;
+
+        transform:
+            translateY(35px)
+            scale(.9);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .cart-empty-box{
+        padding:28px 20px;
+        border-radius:27px;
+    }
+
+    .cart-empty-box h2{
+        font-size:21px;
+    }
+
+    .cart-empty-box p{
+        font-size:13px;
+    }
+
+}
 
 
 
@@ -5196,8 +5330,37 @@ onclick="openCheckout()">
 </div>
 
 
+<!-- =========================
+     CART EMPTY POPUP
+========================= -->
 
+<div id="cartEmptyModal" class="cart-empty-modal">
 
+    <div class="cart-empty-box">
+
+        <div class="cart-empty-icon">
+            🛒
+        </div>
+
+        <h2>
+            Cart Masih Kosong
+        </h2>
+
+        <p>
+            Belum ada produk dalam cart anda.
+            Jom pilih popia favourite anda terlebih dahulu! 👑
+        </p>
+
+        <button
+            class="btn"
+            onclick="closeCartEmpty(); openProducts();"
+        >
+            🛍️ Lihat Produk
+        </button>
+
+    </div>
+
+</div>
 
 
 
@@ -5598,7 +5761,7 @@ function openCheckout(){
 
     if(cart.length === 0){
 
-        alert("Cart masih kosong");
+        showCartEmpty();
 
         return;
 
@@ -5952,13 +6115,13 @@ function updateDelivery(){
 
 function confirmCheckout(){
 
-    if(cart.length === 0){
+ if(cart.length === 0){
 
-        alert("Cart masih kosong");
+    showCartEmpty();
 
-        return;
+    return;
 
-    }
+}
 
 
     let method =
@@ -6373,7 +6536,20 @@ function closeCodError(){
 
 
 
+function showCartEmpty(){
 
+    document.getElementById("cartEmptyModal")
+        .style.display = "flex";
+
+}
+
+
+function closeCartEmpty(){
+
+    document.getElementById("cartEmptyModal")
+        .style.display = "none";
+
+}
 
 
 
