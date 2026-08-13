@@ -6116,7 +6116,28 @@ menu.style.display="flex";
 
 
 
+/* TUTUP COD DROPDOWN BILA KLIK LUAR */
 
+document.addEventListener("click", function(event){
+
+    const dropdown =
+        document.getElementById("customCodSelect");
+
+
+    if(!dropdown){
+
+        return;
+
+    }
+
+
+    if(!dropdown.contains(event.target)){
+
+        dropdown.classList.remove("open");
+
+    }
+
+});
 
 
   
