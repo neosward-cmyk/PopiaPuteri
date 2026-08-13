@@ -3213,22 +3213,49 @@ footer{
 
 
 
-/* =========================
-   PREMIUM COD DROPDOWN
-========================= */
+/* =====================================================
+   PUTERI POPIA — PREMIUM CUSTOM COD DROPDOWN
+===================================================== */
 
-.cod-area select{
+.cod-area{
+    position:relative;
+}
 
+
+/* LABEL */
+
+.cod-select-label{
+    display:flex !important;
+    align-items:center;
+    gap:7px;
+
+    margin-bottom:10px !important;
+
+    color:#65080A;
+    font-size:14px;
+    font-weight:700;
+}
+
+
+/* CUSTOM SELECT */
+
+.custom-cod-select{
+    position:relative;
     width:100%;
+}
 
-    height:58px;
 
-    padding:0 48px 0 18px;
+/* SELECTED BOX */
 
-    border-radius:18px;
+.cod-selected{
+    width:100%;
+    min-height:60px;
 
-    border:
-        2px solid rgba(255,179,0,.45);
+    padding:10px 50px 10px 17px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
     background:
         linear-gradient(
@@ -3237,123 +3264,528 @@ footer{
             #fff4d6
         );
 
+    border:
+        2px solid rgba(255,179,0,.45);
+
+    border-radius:18px;
+
     color:#65080A;
 
-    font-family:'Poppins',sans-serif;
-
-    font-size:14px;
-
-    font-weight:600;
-
-    outline:none;
-
     cursor:pointer;
-
-    appearance:none;
-    -webkit-appearance:none;
 
     box-shadow:
         0 8px 20px rgba(48,2,4,.08);
 
     transition:
         .3s ease;
-
-}
-
-
-/* CUSTOM ARROW */
-
-.cod-area{
-
-    position:relative;
-
-}
-
-
-.cod-area select{
-
-    background-image:
-
-        linear-gradient(45deg, transparent 50%, #65080A 50%),
-        linear-gradient(135deg, #65080A 50%, transparent 50%),
-        linear-gradient(
-            135deg,
-            #fffdf8,
-            #fff4d6
-        );
-
-    background-position:
-
-        calc(100% - 22px) 24px,
-        calc(100% - 16px) 24px,
-        0 0;
-
-    background-size:
-
-        7px 7px,
-        7px 7px,
-        100% 100%;
-
-    background-repeat:no-repeat;
-
 }
 
 
 /* HOVER */
 
-.cod-area select:hover{
+.cod-selected:hover{
 
     border-color:#FFB300;
 
+    transform:translateY(-1px);
+
     box-shadow:
-        0 10px 25px rgba(255,179,0,.18);
-
-    transform:
-        translateY(-1px);
-
+        0 12px 28px rgba(255,179,0,.18);
 }
 
 
-/* FOCUS */
+/* ACTIVE */
 
-.cod-area select:focus{
+.custom-cod-select.open .cod-selected{
 
     border-color:#FFB300;
 
-    box-shadow:
-        0 0 0 4px rgba(255,179,0,.15),
-        0 12px 30px rgba(48,2,4,.12);
+    border-radius:
+        18px 18px 12px 12px;
 
+    box-shadow:
+        0 0 0 4px rgba(255,179,0,.12),
+        0 15px 30px rgba(48,2,4,.12);
 }
 
 
-/* OPTION */
+/* SELECTED CONTENT */
 
-.cod-area select option{
+.cod-selected-info{
 
-    background:#fffdf8;
+    display:flex;
 
-    color:#65080A;
+    align-items:center;
 
-    font-family:'Poppins',sans-serif;
+    gap:12px;
+
+    min-width:0;
+}
+
+
+.cod-selected-icon{
+
+    width:38px;
+    height:38px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #FFD54A,
+            #FFB300
+        );
+
+    font-size:19px;
+
+    box-shadow:
+        0 5px 12px rgba(255,179,0,.25);
+}
+
+
+.cod-selected-text{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:2px;
+
+    min-width:0;
+}
+
+
+.cod-selected-name{
 
     font-size:14px;
 
-    font-weight:500;
+    font-weight:700;
 
-    padding:12px;
+    color:#65080A;
 
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+}
+
+
+.cod-selected-price{
+
+    font-size:12px;
+
+    color:#D85A00;
+
+    font-weight:700;
 }
 
 
 /* PLACEHOLDER */
 
-.cod-area select:invalid{
+.cod-placeholder{
 
     color:#999;
 
+    font-size:14px;
+
+    font-weight:500;
 }
 
+
+/* ARROW */
+
+.cod-arrow{
+
+    position:absolute;
+
+    right:18px;
+
+    top:50%;
+
+    transform:
+        translateY(-50%);
+
+    color:#65080A;
+
+    font-size:18px;
+
+    pointer-events:none;
+
+    transition:.3s ease;
+}
+
+
+.custom-cod-select.open .cod-arrow{
+
+    transform:
+        translateY(-50%)
+        rotate(180deg);
+
+    color:#FF7A00;
+}
+
+
+/* =====================================================
+   DROPDOWN MENU
+===================================================== */
+
+.cod-options{
+
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    top:calc(100% + 8px);
+
+    z-index:100;
+
+    padding:8px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fffdf8,
+            #fff4d6
+        );
+
+    border:
+        1px solid rgba(255,179,0,.45);
+
+    border-radius:20px;
+
+    box-shadow:
+        0 20px 45px rgba(48,2,4,.22),
+        0 0 25px rgba(255,179,0,.12);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:
+        translateY(-8px)
+        scale(.98);
+
+    transform-origin:top;
+
+    transition:
+        .25s ease;
+
+    max-height:300px;
+
+    overflow-y:auto;
+}
+
+
+.custom-cod-select.open .cod-options{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* OPTION */
+
+.cod-option{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    width:100%;
+
+    padding:12px;
+
+    margin-bottom:5px;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+
+    position:relative;
+}
+
+
+.cod-option:last-child{
+
+    margin-bottom:0;
+
+}
+
+
+/* OPTION ICON */
+
+.cod-option-icon{
+
+    width:42px;
+    height:42px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #FFF0C2,
+            #FFD54A
+        );
+
+    font-size:20px;
+
+    box-shadow:
+        0 4px 10px rgba(255,179,0,.18);
+
+    transition:.25s ease;
+}
+
+
+/* OPTION INFO */
+
+.cod-option-info{
+
+    flex:1;
+
+    min-width:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:3px;
+}
+
+
+.cod-option-name{
+
+    color:#65080A;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    line-height:1.4;
+}
+
+
+.cod-option-desc{
+
+    color:#888;
+
+    font-size:11px;
+}
+
+
+/* PRICE */
+
+.cod-option-price{
+
+    flex-shrink:0;
+
+    padding:6px 10px;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #65080A,
+            #8B1114
+        );
+
+    color:#FFD54A;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    box-shadow:
+        0 4px 10px rgba(101,8,10,.18);
+}
+
+
+/* HOVER OPTION */
+
+.cod-option:hover{
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,213,74,.18),
+            rgba(255,179,0,.10)
+        );
+
+    transform:
+        translateX(3px);
+}
+
+
+.cod-option:hover .cod-option-icon{
+
+    transform:
+        scale(1.08)
+        rotate(3deg);
+}
+
+
+/* SELECTED OPTION */
+
+.cod-option.selected{
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(101,8,10,.08),
+            rgba(255,179,0,.14)
+        );
+
+    border:
+        1px solid rgba(255,179,0,.35);
+}
+
+
+.cod-option.selected::after{
+
+    content:"✓";
+
+    position:absolute;
+
+    right:75px;
+
+    width:22px;
+    height:22px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#65080A;
+
+    color:#FFD54A;
+
+    font-size:12px;
+
+    font-weight:bold;
+}
+
+
+/* SCROLLBAR */
+
+.cod-options::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+
+.cod-options::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+
+.cod-options::-webkit-scrollbar-thumb{
+
+    background:
+        linear-gradient(
+            #FFB300,
+            #65080A
+        );
+
+    border-radius:10px;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .cod-selected{
+
+        min-height:58px;
+
+        padding-left:13px;
+
+    }
+
+
+    .cod-selected-name{
+
+        font-size:13px;
+
+    }
+
+
+    .cod-options{
+
+        max-height:280px;
+
+        border-radius:18px;
+
+    }
+
+
+    .cod-option{
+
+        padding:11px;
+
+    }
+
+
+    .cod-option-name{
+
+        font-size:12px;
+
+    }
+
+
+    .cod-option-price{
+
+        font-size:11px;
+
+        padding:5px 8px;
+
+    }
+
+
+    .cod-option-icon{
+
+        width:38px;
+        height:38px;
+
+        font-size:18px;
+
+    }
+
+}
 
 
 
@@ -4303,36 +4735,220 @@ onclick="openCheckout()">
     📍 Pilih kawasan penghantaran
 </label>
 
-                <select
-                    id="codLocation"
-                    onchange="updateDelivery()"
+               <!-- PREMIUM COD DROPDOWN -->
+
+<div class="custom-cod-select" id="customCodSelect">
+
+    <!-- SELECTED -->
+
+    <div
+        class="cod-selected"
+        onclick="toggleCodDropdown()"
+    >
+
+        <div class="cod-selected-info">
+
+            <div
+                class="cod-selected-icon"
+                id="codSelectedIcon"
+            >
+                📍
+            </div>
+
+            <div class="cod-selected-text">
+
+                <div
+                    class="cod-placeholder"
+                    id="codSelectedName"
                 >
+                    Sila pilih kawasan
+                </div>
 
-                    <option value="">
-                        — Sila pilih kawasan —
-                    </option>
+                <div
+                    class="cod-selected-price"
+                    id="codSelectedPrice"
+                    style="display:none;"
+                >
+                </div>
 
-                    <option value="Pasir Panjang / Kuala Ibai|4">
-                        Pasir Panjang / Kuala Ibai — RM4
-                    </option>
+            </div>
 
-                    <option value="Kuala Terengganu / Batu Buruk / Chendering / Losong / Pulau Duyong|6">
-                        Kuala Terengganu / Batu Buruk / Chendering / Losong / Pulau Duyong — RM6
-                    </option>
+        </div>
 
-                    <option value="Manir / Gong Badak / Seberang Takir|8">
-                        Manir / Gong Badak / Seberang Takir — RM8
-                    </option>
 
-                    <option value="Batu Enam / Wakaf Tengah|10">
-                        Batu Enam / Wakaf Tengah — RM10
-                    </option>
+        <span class="cod-arrow">
+            ▼
+        </span>
 
-                    <option value="Batu Rakit|13">
-                        Batu Rakit — RM13
-                    </option>
+    </div>
 
-                </select>
+
+    <!-- OPTIONS -->
+
+    <div class="cod-options">
+
+
+        <div
+            class="cod-option"
+            data-value="Pasir Panjang / Kuala Ibai|4"
+            onclick="selectCodLocation(this)"
+        >
+
+            <div class="cod-option-icon">
+                🏠
+            </div>
+
+            <div class="cod-option-info">
+
+                <div class="cod-option-name">
+                    Pasir Panjang / Kuala Ibai
+                </div>
+
+                <div class="cod-option-desc">
+                    Kawasan berdekatan
+                </div>
+
+            </div>
+
+            <div class="cod-option-price">
+                RM4
+            </div>
+
+        </div>
+
+
+
+        <div
+            class="cod-option"
+            data-value="Kuala Terengganu / Batu Buruk / Chendering / Losong / Pulau Duyong|6"
+            onclick="selectCodLocation(this)"
+        >
+
+            <div class="cod-option-icon">
+                📍
+            </div>
+
+            <div class="cod-option-info">
+
+                <div class="cod-option-name">
+                    Kuala Terengganu / Batu Buruk / Chendering / Losong / Pulau Duyong
+                </div>
+
+                <div class="cod-option-desc">
+                    Kawasan sekitar Kuala Terengganu
+                </div>
+
+            </div>
+
+            <div class="cod-option-price">
+                RM6
+            </div>
+
+        </div>
+
+
+
+        <div
+            class="cod-option"
+            data-value="Manir / Gong Badak / Seberang Takir|8"
+            onclick="selectCodLocation(this)"
+        >
+
+            <div class="cod-option-icon">
+                🚗
+            </div>
+
+            <div class="cod-option-info">
+
+                <div class="cod-option-name">
+                    Manir / Gong Badak / Seberang Takir
+                </div>
+
+                <div class="cod-option-desc">
+                    Kawasan penghantaran
+                </div>
+
+            </div>
+
+            <div class="cod-option-price">
+                RM8
+            </div>
+
+        </div>
+
+
+
+        <div
+            class="cod-option"
+            data-value="Batu Enam / Wakaf Tengah|10"
+            onclick="selectCodLocation(this)"
+        >
+
+            <div class="cod-option-icon">
+                📦
+            </div>
+
+            <div class="cod-option-info">
+
+                <div class="cod-option-name">
+                    Batu Enam / Wakaf Tengah
+                </div>
+
+                <div class="cod-option-desc">
+                    Kawasan penghantaran
+                </div>
+
+            </div>
+
+            <div class="cod-option-price">
+                RM10
+            </div>
+
+        </div>
+
+
+
+        <div
+            class="cod-option"
+            data-value="Batu Rakit|13"
+            onclick="selectCodLocation(this)"
+        >
+
+            <div class="cod-option-icon">
+                🚙
+            </div>
+
+            <div class="cod-option-info">
+
+                <div class="cod-option-name">
+                    Batu Rakit
+                </div>
+
+                <div class="cod-option-desc">
+                    Kawasan penghantaran jauh
+                </div>
+
+            </div>
+
+            <div class="cod-option-price">
+                RM13
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- HIDDEN VALUE -->
+
+<input
+    type="hidden"
+    id="codLocation"
+    value=""
+>
 
 
 <div class="location-reminder">
@@ -4918,9 +5534,174 @@ function openCheckout(){
     document.getElementById("codLocation")
         .value = "";
 
+
+/* RESET CUSTOM COD DROPDOWN */
+
+document.getElementById("codSelectedName")
+    .className = "cod-placeholder";
+
+document.getElementById("codSelectedName")
+    .innerText = "Sila pilih kawasan";
+
+document.getElementById("codSelectedPrice")
+    .style.display = "none";
+
+document.getElementById("codSelectedIcon")
+    .innerText = "📍";
+
+document
+    .querySelectorAll(".cod-option")
+    .forEach(option => {
+
+        option.classList.remove("selected");
+
+    });
+
+document
+    .getElementById("customCodSelect")
+    .classList.remove("open");
+  
+
 }
 
 
+
+
+
+
+
+  
+
+
+
+
+/* =====================================================
+   PREMIUM COD DROPDOWN
+===================================================== */
+
+function toggleCodDropdown(){
+
+    const dropdown =
+        document.getElementById("customCodSelect");
+
+    dropdown.classList.toggle("open");
+
+}
+
+
+/* PILIH KAWASAN */
+
+function selectCodLocation(option){
+
+    const value =
+        option.getAttribute("data-value");
+
+    const parts =
+        value.split("|");
+
+    const location =
+        parts[0];
+
+    const charge =
+        parseFloat(parts[1]);
+
+
+    /* SIMPAN VALUE */
+
+    document.getElementById("codLocation").value =
+        value;
+
+
+    /* UPDATE NAMA */
+
+    document.getElementById("codSelectedName")
+        .className = "cod-selected-name";
+
+    document.getElementById("codSelectedName")
+        .innerText =
+        location;
+
+
+    /* UPDATE PRICE */
+
+    document.getElementById("codSelectedPrice")
+        .style.display = "block";
+
+    document.getElementById("codSelectedPrice")
+        .innerText =
+        "🚚 Caj Delivery RM" +
+        charge.toFixed(2);
+
+
+    /* UPDATE ICON */
+
+    const icon =
+        option.querySelector(".cod-option-icon")
+        .innerText;
+
+    document.getElementById("codSelectedIcon")
+        .innerText = icon;
+
+
+    /* REMOVE SELECTED */
+
+    document
+        .querySelectorAll(".cod-option")
+        .forEach(item => {
+
+            item.classList.remove("selected");
+
+        });
+
+
+    /* ADD SELECTED */
+
+    option.classList.add("selected");
+
+
+    /* CLOSE */
+
+    document
+        .getElementById("customCodSelect")
+        .classList.remove("open");
+
+
+    /* UPDATE TOTAL */
+
+    updateDelivery();
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 function updateDelivery(){
 
