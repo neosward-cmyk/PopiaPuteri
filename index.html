@@ -3245,6 +3245,61 @@ footer{
 }
 
 
+
+/* LOCATION REMINDER */
+
+.location-reminder{
+
+    margin-top:12px;
+
+    padding:12px 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff8df,
+            #fff0c2
+        );
+
+    border:
+        1px solid rgba(255,179,0,.45);
+
+    border-left:
+        5px solid #FFB300;
+
+    border-radius:15px;
+
+    color:#65080A;
+
+    font-size:12px;
+
+    line-height:1.6;
+
+    box-shadow:
+        0 5px 15px rgba(48,2,4,.08);
+
+}
+
+
+.location-reminder strong{
+
+    color:#65080A;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
 /* TOTAL */
 
 .checkout-total{
@@ -4134,6 +4189,23 @@ onclick="openCheckout()">
 
                 </select>
 
+
+<div class="location-reminder">
+    📍 <strong>Penting:</strong> Selepas menghantar order ke WhatsApp,
+    sila <strong>hantar lokasi semasa anda melalui WhatsApp</strong>
+    untuk memudahkan proses penghantaran.
+</div>
+
+
+
+
+
+
+
+
+
+              
+
             </div>
 
         </div>
@@ -4908,14 +4980,16 @@ function confirmCheckout(){
         "*%0A";
 
 
-    if(method === "pickup"){
+if(method === "pickup"){
 
-        message +=
-            "🏠 *SELF PICKUP*%0A" +
-            "📍 Mr D.I.Y. Pasir Panjang%0A" +
-            "🚚 Caj Delivery: RM0.00%0A";
+    message +=
+        "🏠 *SELF PICKUP*%0A" +
+        "📍 *Mr D.I.Y. Pasir Panjang*%0A" +
+        "🚚 Caj Delivery: RM0.00%0A" +
+        "🗺️ *Lokasi Google Maps:*%0A" +
+        "https://maps.google.com/?q=MR.DIY+Pasir+Panjang+Kuala+Terengganu%0A";
 
-    }
+}
 
     else{
 
@@ -4937,8 +5011,15 @@ function confirmCheckout(){
         "*%0A%0A";
 
 
+   if(method === "cod"){
+
     message +=
-        "Saya ingin membuat tempahan. Terima kasih. 👑";
+        "📍 *PENTING:* Sila hantar *Live Location / Lokasi Semasa* anda di WhatsApp selepas mesej ini untuk memudahkan penghantaran. 📍%0A%0A";
+
+}
+
+message +=
+    "Saya ingin membuat tempahan. Terima kasih. 👑";
 
 
     let phone =
