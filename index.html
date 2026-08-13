@@ -2704,70 +2704,7 @@ footer{
 
   
 
-/* =========================
-   PAYMENT QR POPUP
-========================= */
 
-.qr-modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:999999;
-    background:rgba(30,1,2,.85);
-    backdrop-filter:blur(10px);
-    padding:20px;
-    overflow-y:auto;
-}
-
-.qr-box{
-    width:100%;
-    max-width:430px;
-    margin:40px auto;
-    background:#fffdf8;
-    border:2px solid #FFB300;
-    border-radius:30px;
-    padding:25px;
-    text-align:center;
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.5),
-        0 0 40px rgba(255,179,0,.2);
-    animation:popupShow .4s ease;
-}
-
-.qr-box h2{
-    color:#65080A;
-    margin-bottom:8px;
-}
-
-.qr-box p{
-    color:#555;
-    font-size:14px;
-    line-height:1.6;
-}
-
-.qr-image{
-    width:100%;
-    max-width:330px;
-    display:block;
-    margin:20px auto;
-    border-radius:15px;
-}
-
-.qr-total{
-    background:#FFF0C2;
-    color:#65080A;
-    padding:14px;
-    border-radius:18px;
-    font-size:20px;
-    font-weight:bold;
-    margin:15px 0;
-}
-
-.qr-close{
-    width:100%;
-    margin-top:10px;
-}
-  
 
 
 
@@ -3305,53 +3242,7 @@ onclick="checkout()">
 
 
 
-<!-- PAYMENT QR POPUP -->
 
-<div id="qrModal" class="qr-modal">
-
-    <div class="qr-box">
-
-        <span class="close" onclick="closeQR()">
-            ×
-        </span>
-
-        <h2>
-            💳 Pembayaran
-        </h2>
-
-        <p>
-            Sila scan QR Maybank di bawah
-            untuk membuat pembayaran.
-        </p>
-
-        <img
-            src="images/qr-maybank.jpeg"
-            class="qr-image"
-            alt="QR Pembayaran Maybank"
-        >
-
-        <div class="qr-total">
-            Jumlah Bayaran:
-            RM <span id="qrTotal">0.00</span>
-        </div>
-
-        <p>
-            Selepas pembayaran,
-            sila hantar bukti pembayaran
-            melalui WhatsApp.
-        </p>
-
-        <button
-            class="btn qr-close"
-            onclick="sendPaymentProof()">
-
-            📲 Hantar Bukti Pembayaran
-
-        </button>
-
-    </div>
-
-</div>
 
 
 
@@ -3675,19 +3566,7 @@ function checkout(){
         "_blank"
     );
 
-    /* Buka QR selepas WhatsApp dibuka */
 
-    setTimeout(() => {
-
-        document.getElementById("qrTotal")
-        .innerText = total.toFixed(2);
-
-        document.getElementById("qrModal")
-        .style.display = "block";
-
-    }, 800);
-
-}
 
 
 
