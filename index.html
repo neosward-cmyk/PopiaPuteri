@@ -2894,7 +2894,535 @@ footer{
 
 
 
+/* =====================================================
+   PREMIUM CHECKOUT DETAILS POPUP
+===================================================== */
 
+.checkout-modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:99998;
+
+    background:
+        rgba(30,1,2,.82);
+
+    backdrop-filter:blur(12px);
+
+    padding:20px;
+
+    overflow-y:auto;
+
+}
+
+
+.checkout-box{
+
+    width:100%;
+
+    max-width:650px;
+
+    margin:30px auto;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fffdf8,
+            #fff4d6
+        );
+
+    border-radius:35px;
+
+    padding:30px;
+
+    border:
+        2px solid rgba(255,179,0,.4);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.5),
+        0 0 50px rgba(255,179,0,.18);
+
+    position:relative;
+
+    animation:
+        checkoutShow .4s ease;
+
+}
+
+
+.checkout-header{
+
+    text-align:center;
+
+    padding-bottom:20px;
+
+}
+
+
+.checkout-crown{
+
+    width:65px;
+
+    height:65px;
+
+    margin:0 auto 12px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #FFB300,
+            #FF7A00
+        );
+
+    font-size:30px;
+
+    box-shadow:
+        0 8px 25px rgba(255,122,0,.3);
+
+}
+
+
+.checkout-header h2{
+
+    color:#65080A;
+
+    font-size:28px;
+
+    margin-bottom:5px;
+
+}
+
+
+.checkout-header p{
+
+    color:#777;
+
+    font-size:14px;
+
+}
+
+
+/* SECTION */
+
+.checkout-section{
+
+    margin-top:20px;
+
+}
+
+
+.checkout-section h3{
+
+    color:#65080A;
+
+    font-size:17px;
+
+    margin-bottom:12px;
+
+}
+
+
+/* ORDER ITEM */
+
+.checkout-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#fffdf8;
+
+    padding:14px 16px;
+
+    border-radius:18px;
+
+    margin-bottom:8px;
+
+    border:
+        1px solid rgba(255,179,0,.18);
+
+}
+
+
+.checkout-item-name{
+
+    color:#65080A;
+
+    font-weight:600;
+
+}
+
+
+.checkout-item-qty{
+
+    color:#777;
+
+    font-size:13px;
+
+}
+
+
+.checkout-item-price{
+
+    color:#D85A00;
+
+    font-weight:700;
+
+}
+
+
+/* DELIVERY OPTIONS */
+
+.delivery-options{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+
+.delivery-option{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:12px;
+
+    padding:15px;
+
+    background:#fffdf8;
+
+    border-radius:20px;
+
+    border:
+        1px solid rgba(255,179,0,.2);
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+.delivery-option:hover{
+
+    border-color:#FFB300;
+
+    transform:translateY(-2px);
+
+}
+
+
+.delivery-option input{
+
+    margin-top:5px;
+
+    accent-color:#65080A;
+
+}
+
+
+.delivery-option-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:3px;
+
+}
+
+
+.delivery-option-content strong{
+
+    color:#65080A;
+
+    font-size:15px;
+
+}
+
+
+.delivery-option-content span{
+
+    color:#555;
+
+    font-size:13px;
+
+}
+
+
+.delivery-option-content small{
+
+    color:#D85A00;
+
+    font-weight:600;
+
+    font-size:12px;
+
+}
+
+
+/* COD AREA */
+
+.cod-area{
+
+    margin-top:15px;
+
+    padding:18px;
+
+    background:#FFF0C2;
+
+    border-radius:20px;
+
+    border:
+        1px solid rgba(255,179,0,.4);
+
+}
+
+
+.cod-area label{
+
+    display:block;
+
+    color:#65080A;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+}
+
+
+.cod-area select{
+
+    width:100%;
+
+    padding:14px 15px;
+
+    border-radius:15px;
+
+    border:
+        1px solid #FFB300;
+
+    background:#fffdf8;
+
+    color:#65080A;
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:13px;
+
+    outline:none;
+
+    cursor:pointer;
+
+}
+
+
+.cod-area select:focus{
+
+    box-shadow:
+        0 0 0 3px rgba(255,179,0,.2);
+
+}
+
+
+/* TOTAL */
+
+.checkout-total{
+
+    margin-top:25px;
+
+    padding:20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #65080A,
+            #8B1114
+        );
+
+    border-radius:22px;
+
+    color:white;
+
+}
+
+
+.checkout-total > div{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:7px 0;
+
+}
+
+
+.checkout-total span{
+
+    font-size:14px;
+
+}
+
+
+.checkout-total strong{
+
+    color:#FFD54A;
+
+}
+
+
+.grand-total{
+
+    margin-top:10px;
+
+    padding-top:15px;
+
+    border-top:
+        1px solid rgba(255,255,255,.2);
+
+}
+
+
+.grand-total span{
+
+    font-size:17px;
+
+    font-weight:700;
+
+}
+
+
+.grand-total strong{
+
+    font-size:25px;
+
+}
+
+
+/* SUBMIT */
+
+.checkout-submit{
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:16px;
+
+    font-size:16px;
+
+    font-weight:800;
+
+}
+
+
+/* ANIMATION */
+
+@keyframes checkoutShow{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(50px)
+            scale(.92);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .checkout-modal{
+
+        padding:10px;
+
+    }
+
+
+    .checkout-box{
+
+        margin:10px auto;
+
+        padding:22px 17px;
+
+        border-radius:28px;
+
+    }
+
+
+    .checkout-header h2{
+
+        font-size:24px;
+
+    }
+
+
+    .checkout-item{
+
+        padding:12px;
+
+    }
+
+
+    .checkout-item-name{
+
+        font-size:13px;
+
+    }
+
+
+    .checkout-item-price{
+
+        font-size:13px;
+
+    }
+
+
+    .grand-total strong{
+
+        font-size:22px;
+
+    }
+
+}
 
 
 
@@ -3436,7 +3964,7 @@ RM <span id="cartTotal">
 <div class="promo-btn">
 
 <button class="btn"
-onclick="checkout()">
+onclick="openCheckout()">
 
 📲 Checkout WhatsApp
 
@@ -3453,7 +3981,224 @@ onclick="checkout()">
 
 
 
+<!-- =========================
+     CHECKOUT DETAILS POPUP
+========================= -->
 
+<div id="checkoutModal" class="checkout-modal">
+
+    <div class="checkout-box">
+
+        <span class="close" onclick="closeCheckout()">
+            ×
+        </span>
+
+        <div class="checkout-header">
+
+            <div class="checkout-crown">
+                👑
+            </div>
+
+            <h2>
+                Semak Tempahan
+            </h2>
+
+            <p>
+                Sila semak maklumat tempahan anda
+            </p>
+
+        </div>
+
+
+        <!-- ORDER DETAILS -->
+
+        <div class="checkout-section">
+
+            <h3>
+                🛒 Detail Tempahan
+            </h3>
+
+            <div id="checkoutItems">
+                <!-- Cart items akan masuk di sini -->
+            </div>
+
+        </div>
+
+
+        <!-- DELIVERY OPTION -->
+
+        <div class="checkout-section">
+
+            <h3>
+                📦 Cara Terima Tempahan
+            </h3>
+
+
+            <div class="delivery-options">
+
+                <label class="delivery-option">
+
+                    <input
+                        type="radio"
+                        name="deliveryMethod"
+                        value="pickup"
+                        checked
+                        onchange="updateDelivery()"
+                    >
+
+                    <div class="delivery-option-content">
+
+                        <strong>
+                            🏠 Self Pickup
+                        </strong>
+
+                        <span>
+                            📍 Mr D.I.Y. Pasir Panjang
+                        </span>
+
+                        <small>
+                            Tiada caj tambahan
+                        </small>
+
+                    </div>
+
+                </label>
+
+
+                <label class="delivery-option">
+
+                    <input
+                        type="radio"
+                        name="deliveryMethod"
+                        value="cod"
+                        onchange="updateDelivery()"
+                    >
+
+                    <div class="delivery-option-content">
+
+                        <strong>
+                            🚗 COD / Delivery
+                        </strong>
+
+                        <span>
+                            Pilih kawasan penghantaran
+                        </span>
+
+                    </div>
+
+                </label>
+
+            </div>
+
+
+            <!-- COD AREA -->
+
+            <div
+                id="codArea"
+                class="cod-area"
+                style="display:none;"
+            >
+
+                <label>
+                    📍 Pilih kawasan COD
+                </label>
+
+                <select
+                    id="codLocation"
+                    onchange="updateDelivery()"
+                >
+
+                    <option value="">
+                        — Sila pilih kawasan —
+                    </option>
+
+                    <option value="Pasir Panjang / Kuala Ibai|4">
+                        Pasir Panjang / Kuala Ibai — RM4
+                    </option>
+
+                    <option value="Kuala Terengganu / Batu Buruk / Chendering / Losong / Pulau Duyong|6">
+                        Kuala Terengganu / Batu Buruk / Chendering / Losong / Pulau Duyong — RM6
+                    </option>
+
+                    <option value="Manir / Gong Badak / Seberang Takir|8">
+                        Manir / Gong Badak / Seberang Takir — RM8
+                    </option>
+
+                    <option value="Batu Enam / Wakaf Tengah|10">
+                        Batu Enam / Wakaf Tengah — RM10
+                    </option>
+
+                    <option value="Batu Rakit|13">
+                        Batu Rakit — RM13
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- TOTAL -->
+
+        <div class="checkout-total">
+
+            <div>
+
+                <span>
+                    Subtotal
+                </span>
+
+                <strong id="checkoutSubtotal">
+                    RM0.00
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Caj Delivery
+                </span>
+
+                <strong id="deliveryCharge">
+                    RM0.00
+                </strong>
+
+            </div>
+
+
+            <div class="grand-total">
+
+                <span>
+                    💰 Jumlah Akhir
+                </span>
+
+                <strong id="checkoutGrandTotal">
+                    RM0.00
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- CHECKOUT BUTTON -->
+
+        <button
+            class="btn checkout-submit"
+            onclick="confirmCheckout()"
+        >
+
+            📲 Hantar Order WhatsApp
+
+        </button>
+
+
+    </div>
+
+</div>
 
 
 
@@ -3850,6 +4595,407 @@ function closeCart(){
 document.getElementById("cartModal").style.display="none";
 
 }
+
+
+
+
+
+/* =====================================================
+   CHECKOUT DETAILS
+===================================================== */
+
+function openCheckout(){
+
+    if(cart.length === 0){
+
+        alert("Cart masih kosong");
+
+        return;
+
+    }
+
+
+    // Tutup cart
+
+    closeCart();
+
+
+    // Paparkan popup checkout
+
+    document.getElementById("checkoutModal")
+        .style.display = "block";
+
+
+    // Paparkan item cart
+
+    let html = "";
+
+    let subtotal = 0;
+
+
+    cart.forEach(item => {
+
+        let itemTotal =
+            item.price * item.qty;
+
+
+        subtotal += itemTotal;
+
+
+        html += `
+
+        <div class="checkout-item">
+
+            <div>
+
+                <div class="checkout-item-name">
+                    🍪 ${item.name}
+                </div>
+
+                <div class="checkout-item-qty">
+                    ${item.qty} × RM${item.price.toFixed(2)}
+                </div>
+
+            </div>
+
+            <div class="checkout-item-price">
+                RM${itemTotal.toFixed(2)}
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+
+    document.getElementById("checkoutItems")
+        .innerHTML = html;
+
+
+    document.getElementById("checkoutSubtotal")
+        .innerText =
+        "RM" + subtotal.toFixed(2);
+
+
+    document.getElementById("deliveryCharge")
+        .innerText = "RM0.00";
+
+
+    document.getElementById("checkoutGrandTotal")
+        .innerText =
+        "RM" + subtotal.toFixed(2);
+
+
+    // Reset kepada Self Pickup
+
+    document.querySelector(
+        'input[name="deliveryMethod"][value="pickup"]'
+    ).checked = true;
+
+
+    document.getElementById("codArea")
+        .style.display = "none";
+
+
+    document.getElementById("codLocation")
+        .value = "";
+
+}
+
+
+
+function updateDelivery(){
+
+    let method =
+        document.querySelector(
+            'input[name="deliveryMethod"]:checked'
+        ).value;
+
+
+    let codArea =
+        document.getElementById("codArea");
+
+
+    let deliveryCharge = 0;
+
+    let location = "";
+
+
+    /* SELF PICKUP */
+
+    if(method === "pickup"){
+
+        codArea.style.display = "none";
+
+    }
+
+
+    /* COD */
+
+    else{
+
+        codArea.style.display = "block";
+
+
+        let selected =
+            document.getElementById("codLocation")
+            .value;
+
+
+        if(selected){
+
+            let parts =
+                selected.split("|");
+
+
+            location = parts[0];
+
+            deliveryCharge =
+                parseFloat(parts[1]);
+
+        }
+
+    }
+
+
+    // Kira subtotal
+
+    let subtotal = 0;
+
+
+    cart.forEach(item => {
+
+        subtotal +=
+            item.price * item.qty;
+
+    });
+
+
+    let grandTotal =
+        subtotal + deliveryCharge;
+
+
+    document.getElementById("checkoutSubtotal")
+        .innerText =
+        "RM" + subtotal.toFixed(2);
+
+
+    document.getElementById("deliveryCharge")
+        .innerText =
+        "RM" + deliveryCharge.toFixed(2);
+
+
+    document.getElementById("checkoutGrandTotal")
+        .innerText =
+        "RM" + grandTotal.toFixed(2);
+
+}
+
+
+
+
+function confirmCheckout(){
+
+    if(cart.length === 0){
+
+        alert("Cart masih kosong");
+
+        return;
+
+    }
+
+
+    let method =
+        document.querySelector(
+            'input[name="deliveryMethod"]:checked'
+        ).value;
+
+
+    let deliveryCharge = 0;
+
+    let location = "";
+
+
+    /* SELF PICKUP */
+
+    if(method === "pickup"){
+
+        location =
+            "Self Pickup - Mr D.I.Y. Pasir Panjang";
+
+        deliveryCharge = 0;
+
+    }
+
+
+    /* COD */
+
+    else{
+
+        let selected =
+            document.getElementById("codLocation")
+            .value;
+
+
+        if(!selected){
+
+            alert(
+                "Sila pilih kawasan COD terlebih dahulu."
+            );
+
+            return;
+
+        }
+
+
+        let parts =
+            selected.split("|");
+
+
+        location = parts[0];
+
+        deliveryCharge =
+            parseFloat(parts[1]);
+
+    }
+
+
+    /* CALCULATE TOTAL */
+
+    let subtotal = 0;
+
+
+    cart.forEach(item => {
+
+        subtotal +=
+            item.price * item.qty;
+
+    });
+
+
+    let total =
+        subtotal + deliveryCharge;
+
+
+    /* BUILD WHATSAPP MESSAGE */
+
+    let message =
+        "👑 *ORDER PUTERI POPIA*%0A%0A";
+
+
+    cart.forEach(item => {
+
+        let itemTotal =
+            item.price * item.qty;
+
+
+        message +=
+            "🍪 " +
+            item.name +
+            " x " +
+            item.qty +
+            " = RM" +
+            itemTotal.toFixed(2) +
+            "%0A";
+
+    });
+
+
+    message +=
+        "%0A🧾 *SUBTOTAL: RM" +
+        subtotal.toFixed(2) +
+        "*%0A";
+
+
+    if(method === "pickup"){
+
+        message +=
+            "🏠 *SELF PICKUP*%0A" +
+            "📍 Mr D.I.Y. Pasir Panjang%0A" +
+            "🚚 Caj Delivery: RM0.00%0A";
+
+    }
+
+    else{
+
+        message +=
+            "🚗 *COD / DELIVERY*%0A" +
+            "📍 Kawasan: " +
+            location +
+            "%0A" +
+            "🚚 Caj Delivery: RM" +
+            deliveryCharge.toFixed(2) +
+            "%0A";
+
+    }
+
+
+    message +=
+        "%0A💰 *TOTAL: RM" +
+        total.toFixed(2) +
+        "*%0A%0A";
+
+
+    message +=
+        "Saya ingin membuat tempahan. Terima kasih. 👑";
+
+
+    let phone =
+        "60149428630";
+
+
+    /* OPEN WHATSAPP */
+
+    window.open(
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        message,
+        "_blank"
+    );
+
+
+    /* CLEAR CART */
+
+    cart = [];
+
+    saveCart();
+
+    updateCart();
+
+
+    /* CLOSE CHECKOUT */
+
+    closeCheckout();
+
+
+    /* THANK YOU POPUP */
+
+    setTimeout(() => {
+
+        document.getElementById("thankYouModal")
+            .style.display = "flex";
+
+    },500);
+
+}
+
+
+function closeCheckout(){
+
+    document.getElementById("checkoutModal")
+        .style.display = "none";
+
+}
+
+
+
+
+
+
+
+  
 
 
 
