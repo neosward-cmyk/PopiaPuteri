@@ -3211,16 +3211,125 @@ footer{
 }
 
 
+
+
+/* =========================
+   PREMIUM COD DROPDOWN
+========================= */
+
 .cod-area select{
 
     width:100%;
 
-    padding:14px 15px;
+    height:58px;
 
-    border-radius:15px;
+    padding:0 48px 0 18px;
+
+    border-radius:18px;
 
     border:
-        1px solid #FFB300;
+        2px solid rgba(255,179,0,.45);
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf8,
+            #fff4d6
+        );
+
+    color:#65080A;
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    outline:none;
+
+    cursor:pointer;
+
+    appearance:none;
+    -webkit-appearance:none;
+
+    box-shadow:
+        0 8px 20px rgba(48,2,4,.08);
+
+    transition:
+        .3s ease;
+
+}
+
+
+/* CUSTOM ARROW */
+
+.cod-area{
+
+    position:relative;
+
+}
+
+
+.cod-area select{
+
+    background-image:
+
+        linear-gradient(45deg, transparent 50%, #65080A 50%),
+        linear-gradient(135deg, #65080A 50%, transparent 50%),
+        linear-gradient(
+            135deg,
+            #fffdf8,
+            #fff4d6
+        );
+
+    background-position:
+
+        calc(100% - 22px) 24px,
+        calc(100% - 16px) 24px,
+        0 0;
+
+    background-size:
+
+        7px 7px,
+        7px 7px,
+        100% 100%;
+
+    background-repeat:no-repeat;
+
+}
+
+
+/* HOVER */
+
+.cod-area select:hover{
+
+    border-color:#FFB300;
+
+    box-shadow:
+        0 10px 25px rgba(255,179,0,.18);
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+/* FOCUS */
+
+.cod-area select:focus{
+
+    border-color:#FFB300;
+
+    box-shadow:
+        0 0 0 4px rgba(255,179,0,.15),
+        0 12px 30px rgba(48,2,4,.12);
+
+}
+
+
+/* OPTION */
+
+.cod-area select option{
 
     background:#fffdf8;
 
@@ -3228,22 +3337,42 @@ footer{
 
     font-family:'Poppins',sans-serif;
 
-    font-size:13px;
+    font-size:14px;
 
-    outline:none;
+    font-weight:500;
 
-    cursor:pointer;
+    padding:12px;
+
+}
+
+
+/* PLACEHOLDER */
+
+.cod-area select:invalid{
+
+    color:#999;
 
 }
 
 
-.cod-area select:focus{
 
-    box-shadow:
-        0 0 0 3px rgba(255,179,0,.2);
 
-}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
 /* LOCATION REMINDER */
@@ -3480,7 +3609,23 @@ footer{
 }
 
 
+.cod-select-label{
 
+    display:flex !important;
+
+    align-items:center;
+
+    gap:6px;
+
+    margin-bottom:10px !important;
+
+    color:#65080A;
+
+    font-size:14px;
+
+    font-weight:700;
+
+}
 
 
 
@@ -4154,9 +4299,9 @@ onclick="openCheckout()">
                 style="display:none;"
             >
 
-                <label>
-                    📍 Pilih kawasan COD
-                </label>
+             <label class="cod-select-label">
+    📍 Pilih kawasan penghantaran
+</label>
 
                 <select
                     id="codLocation"
