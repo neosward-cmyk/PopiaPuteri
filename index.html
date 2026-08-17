@@ -4873,6 +4873,134 @@ footer{
 }
 
 
+
+
+
+
+/* =========================================
+   NAVBAR ACTIVE SECTION
+========================================= */
+
+.menu a.nav-link{
+    position:relative;
+    color:white;
+    text-decoration:none;
+}
+
+
+/* ACTIVE */
+
+.menu a.nav-link.active{
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,179,0,.35),
+            rgba(255,122,0,.22)
+        );
+
+    color:#FFD54A;
+
+    box-shadow:
+        0 8px 20px rgba(255,179,0,.20);
+
+    transform:translateY(-2px);
+
+}
+
+
+/* ACTIVE GLOW */
+
+.menu a.nav-link.active::after{
+
+    width:60%;
+
+    background:#FFD54A;
+
+    box-shadow:
+        0 0 8px rgba(255,213,74,.8);
+
+}
+
+
+/* HOVER */
+
+.menu a.nav-link:hover{
+
+    color:#FFD54A;
+
+}
+
+
+/* MOBILE ACTIVE */
+
+@media(max-width:700px){
+
+    .menu a.nav-link.active{
+
+        background:
+            linear-gradient(
+                135deg,
+                rgba(255,179,0,.25),
+                rgba(255,122,0,.15)
+            );
+
+        color:#FFD54A;
+
+        transform:none;
+
+    }
+
+}
+
+
+
+
+
+/* =========================================
+   NAVBAR SCROLLED
+========================================= */
+
+nav.nav-scrolled{
+
+    padding:10px 8%;
+
+    box-shadow:
+        0 10px 35px rgba(48,2,4,.55),
+        0 2px 15px rgba(255,179,0,.20);
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    nav.nav-scrolled{
+
+        padding:10px 5%;
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   
 
 
@@ -4889,17 +5017,31 @@ footer{
 <body>
 
 
-<nav>
+<nav id="mainNav">
 
 <div class="logo">
     <img src="images/logo.png" alt="Puteri Popia Logo">
     <span>Puteri Popia</span>
 </div>
 
-<div class="menu">
-<a href="#produk">Produk</a>
-<a href="#Promo">Promosi</a>
-<a href="#gallery">Gallery</a>
+<div class="menu" id="mainMenu">
+
+<a href="#home" class="nav-link active">
+    🏠 Home
+</a>
+
+<a href="#produk" class="nav-link">
+    🛍️ Produk
+</a>
+
+<a href="#promo" class="nav-link">
+    🎁 Promosi
+</a>
+
+<a href="#gallery" class="nav-link">
+    💖 Gallery
+</a>
+
 </div>
 
 
@@ -4907,11 +5049,10 @@ footer{
 ☰
 </div>
 
-
 </nav>
 
 
-<div class="hero">
+<div class="hero" id="home">
 
 <div class="hero-content">
 
@@ -7269,25 +7410,22 @@ cartBox.style.display="none";
 
 
 
-
 function toggleMenu(){
 
+    const menu =
+        document.getElementById("mainMenu");
 
+    if(menu.style.display === "flex"){
 
-let menu=document.querySelector(".menu");
+        menu.style.display = "none";
 
-if(menu.style.display==="flex"){
+    }else{
 
-menu.style.display="none";
+        menu.style.display = "flex";
 
-}else{
-
-menu.style.display="flex";
+    }
 
 }
-
-}
-
 
 
 
@@ -7364,25 +7502,22 @@ image:"images/biskut.jpg"
 
 
 
-window.addEventListener("scroll",()=>{
+window.addEventListener("scroll", () => {
 
-let nav=document.querySelector("nav");
+    const nav =
+        document.getElementById("mainNav");
 
-if(window.scrollY>50){
+    if(window.scrollY > 50){
 
-nav.style.padding="10px 8%";
+        nav.classList.add("nav-scrolled");
 
-nav.style.background=
-"rgba(178,59,98,.95)";
+    }else{
 
-}else{
+        nav.classList.remove("nav-scrolled");
 
-nav.style.padding="15px 8%";
-
-}
+    }
 
 });
-
 
 
 
@@ -7422,8 +7557,6 @@ function closeCartEmpty(){
 
 
 
-
-<script>
 const galleryImages = [
     "./images/customer1.jpeg",
     "./images/customer2.jpeg",
@@ -7516,10 +7649,122 @@ document.addEventListener("keydown", function(e) {
     if (e.key === "ArrowRight") galleryNext();
 
 });
-</script>
 
 
 
+/* =========================================
+   NAVBAR AUTO ACTIVE SECTION
+========================================= */
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const navLinks =
+        document.querySelectorAll(".nav-link");
+
+    const sections = [
+        document.getElementById("home"),
+        document.getElementById("produk"),
+        document.getElementById("promo"),
+        document.getElementById("gallery")
+    ].filter(Boolean);
+
+
+    /* =========================
+       KLIK NAVBAR
+    ========================= */
+
+    navLinks.forEach(link => {
+
+        link.addEventListener("click", function(){
+
+            navLinks.forEach(item => {
+                item.classList.remove("active");
+            });
+
+            this.classList.add("active");
+
+
+            /* Tutup mobile menu */
+
+            const menu =
+                document.getElementById("mainMenu");
+
+            if(window.innerWidth <= 700){
+
+                menu.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+
+    /* =========================
+       AUTO ACTIVE SEMASA SCROLL
+    ========================= */
+
+    const observer =
+        new IntersectionObserver(
+            function(entries){
+
+                entries.forEach(entry => {
+
+                    if(entry.isIntersecting){
+
+                        const id =
+                            entry.target.getAttribute("id");
+
+                        navLinks.forEach(link => {
+
+                            link.classList.remove("active");
+
+                        });
+
+
+                        const activeLink =
+                            document.querySelector(
+                                '.nav-link[href="#' + id + '"]'
+                            );
+
+
+                        if(activeLink){
+
+                            activeLink.classList.add("active");
+
+                        }
+
+                    }
+
+                });
+
+            },
+            {
+
+                /*
+                 * Navbar sticky ±80px
+                 * Section dianggap aktif
+                 * apabila masuk kawasan tengah.
+                 */
+
+                rootMargin:
+                    "-90px 0px -55% 0px",
+
+                threshold:0
+
+            }
+        );
+
+
+    /* Observe semua section */
+
+    sections.forEach(section => {
+
+        observer.observe(section);
+
+    });
+
+});
 
 
   
