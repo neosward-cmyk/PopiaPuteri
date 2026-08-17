@@ -4890,46 +4890,70 @@ href="https://wa.me/60149428630">
 
 
 
-
 <section>
 
 <h2 class="title">
-Promosi Mingguan
+🎁 PROMOSI ISTIMEWA
 </h2>
-
 
 <div class="card">
 
 <img src="images/promo.jpg">
 
-
 <h3>
-Combo Keluarga
+Pembelian Combo 3 Item FREE COD
 </h3>
 
-
 <p>
-3 balang hanya RM25
+🎉 Beli mana-mana 3 item dan dapatkan <strong>FREE COD!</strong>
 </p>
 
-
+<p>
+🚗 Caj penghantaran ditanggung oleh Puteri Popia.
+</p>
 
 <div class="promo-btn">
 
-<button class="btn"
-onclick="addToCart('Combo Keluarga (3 Balang)',25)">
+<a class="btn"
+href="#produk">
 
-🎁 Tambah Promo Cart
+🛍️ Pilih 3 Item Sekarang
 
-</button>
-
-</div>
-
+</a>
 
 </div>
 
+</div>
 
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
 
@@ -6407,28 +6431,31 @@ function selectCodLocation(option){
 
 
 
+/* =====================================================
+   PROMO: BELI 3 ITEM = FREE COD
+===================================================== */
+
+function getTotalItemQty(){
+
+    let totalQty = 0;
+
+    cart.forEach(item => {
+        totalQty += item.qty;
+    });
+
+    return totalQty;
+
+}
+
+
+function isFreeCOD(){
+
+    return getTotalItemQty() >= 3;
+
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
 
 function updateDelivery(){
 
@@ -6476,15 +6503,26 @@ function updateDelivery(){
 
             location = parts[0];
 
-            deliveryCharge =
-                parseFloat(parts[1]);
+
+            /* FREE COD JIKA 3 ITEM ATAU LEBIH */
+
+            if(isFreeCOD()){
+
+                deliveryCharge = 0;
+
+            }else{
+
+                deliveryCharge =
+                    parseFloat(parts[1]);
+
+            }
 
         }
 
     }
 
 
-    // Kira subtotal
+    /* KIRA SUBTOTAL */
 
     let subtotal = 0;
 
@@ -6506,9 +6544,21 @@ function updateDelivery(){
         "RM" + subtotal.toFixed(2);
 
 
-    document.getElementById("deliveryCharge")
-        .innerText =
-        "RM" + deliveryCharge.toFixed(2);
+    /* PAPAR FREE COD */
+
+    if(method === "cod" && isFreeCOD()){
+
+        document.getElementById("deliveryCharge")
+            .innerText =
+            "FREE 🎁";
+
+    }else{
+
+        document.getElementById("deliveryCharge")
+            .innerText =
+            "RM" + deliveryCharge.toFixed(2);
+
+    }
 
 
     document.getElementById("checkoutGrandTotal")
@@ -6516,6 +6566,23 @@ function updateDelivery(){
         "RM" + grandTotal.toFixed(2);
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
 
 
 
@@ -6578,10 +6645,20 @@ function confirmCheckout(){
 
         location = parts[0];
 
-        deliveryCharge =
-            parseFloat(parts[1]);
+/* PROMO FREE COD */
 
-    }
+if(isFreeCOD()){
+
+    deliveryCharge = 0;
+
+}else{
+
+    deliveryCharge =
+        parseFloat(parts[1]);
+
+}
+
+    
 
 
     /* CALCULATE TOTAL */
@@ -6642,18 +6719,31 @@ if(method === "pickup"){
 
 }
 
-    else{
+else{
+
+    message +=
+        "🚗 *COD / DELIVERY*%0A" +
+        "📍 Kawasan: " +
+        location +
+        "%0A";
+
+
+    if(isFreeCOD()){
 
         message +=
-            "🚗 *COD / DELIVERY*%0A" +
-            "📍 Kawasan: " +
-            location +
-            "%0A" +
+            "🎁 *PROMO: BELI 3 ITEM = FREE COD!*%0A" +
+            "🚚 Caj Delivery: *FREE*%0A";
+
+    }else{
+
+        message +=
             "🚚 Caj Delivery: RM" +
             deliveryCharge.toFixed(2) +
             "%0A";
 
     }
+
+}
 
 
     message +=
