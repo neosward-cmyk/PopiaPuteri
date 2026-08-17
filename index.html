@@ -11,7 +11,7 @@
 
 <meta property="og:image" content="https://popia-puteri.vercel.app/images/preview.jpeg">
 <meta property="og:image:secure_url" content="https://popia-puteri.vercel.app/images/preview.jpeg">
-<meta property="og:image:type" content="image/png">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
@@ -6571,45 +6571,30 @@ function updateDelivery(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
 function confirmCheckout(){
 
- if(cart.length === 0){
+    if(cart.length === 0){
+        showCartEmpty();
+        return;
+    }
 
-    showCartEmpty();
-
-    return;
-
-}
-
-
-    let method =
+    const selectedMethod =
         document.querySelector(
             'input[name="deliveryMethod"]:checked'
-        ).value;
+        );
 
+    if(!selectedMethod){
+        return;
+    }
+
+    const method = selectedMethod.value;
 
     let deliveryCharge = 0;
-
     let location = "";
 
-
-    /* SELF PICKUP */
+    /* =========================
+       SELF PICKUP
+    ========================= */
 
     if(method === "pickup"){
 
@@ -6620,51 +6605,44 @@ function confirmCheckout(){
 
     }
 
+    /* =========================
+       COD / DELIVERY
+    ========================= */
 
-    /* COD */
+    else if(method === "cod"){
 
-    else{
+        const selected =
+            document.getElementById("codLocation").value;
 
-        let selected =
-            document.getElementById("codLocation")
-            .value;
+        if(!selected){
 
+            showCodError();
 
-    if(!selected){
+            return;
+        }
 
-    showCodError();
-
-    return;
-
-}
-
-
-        let parts =
-            selected.split("|");
-
+        const parts = selected.split("|");
 
         location = parts[0];
 
-/* PROMO FREE COD */
+        if(isFreeCOD()){
 
-if(isFreeCOD()){
+            deliveryCharge = 0;
 
-    deliveryCharge = 0;
+        }else{
 
-}else{
+            deliveryCharge =
+                parseFloat(parts[1]);
 
-    deliveryCharge =
-        parseFloat(parts[1]);
+        }
 
-}
+    }
 
-    
-
-
-    /* CALCULATE TOTAL */
+    /* =========================
+       KIRA SUBTOTAL
+    ========================= */
 
     let subtotal = 0;
-
 
     cart.forEach(item => {
 
@@ -6674,11 +6652,13 @@ if(isFreeCOD()){
     });
 
 
-    let total =
+    const total =
         subtotal + deliveryCharge;
 
 
-    /* BUILD WHATSAPP MESSAGE */
+    /* =========================
+       WHATSAPP MESSAGE
+    ========================= */
 
     let message =
         "👑 *ORDER PUTERI POPIA*%0A%0A";
@@ -6686,9 +6666,8 @@ if(isFreeCOD()){
 
     cart.forEach(item => {
 
-        let itemTotal =
+        const itemTotal =
             item.price * item.qty;
-
 
         message +=
             "🍪 " +
@@ -6708,43 +6687,51 @@ if(isFreeCOD()){
         "*%0A";
 
 
-if(method === "pickup"){
+    /* =========================
+       DELIVERY DETAILS
+    ========================= */
 
-    message +=
-        "🏠 *SELF PICKUP*%0A" +
-        "📍 *Mr D.I.Y. Pasir Panjang*%0A" +
-        "🚚 Caj Delivery: RM0.00%0A" +
-        "🗺️ *Lokasi Google Maps:*%0A" +
-        "https://maps.google.com/?q=MR.DIY+Pasir+Panjang+Kuala+Terengganu%0A";
-
-}
-
-else{
-
-    message +=
-        "🚗 *COD / DELIVERY*%0A" +
-        "📍 Kawasan: " +
-        location +
-        "%0A";
-
-
-    if(isFreeCOD()){
+    if(method === "pickup"){
 
         message +=
-            "🎁 *PROMO: BELI 3 ITEM = FREE COD!*%0A" +
-            "🚚 Caj Delivery: *FREE*%0A";
-
-    }else{
-
-        message +=
-            "🚚 Caj Delivery: RM" +
-            deliveryCharge.toFixed(2) +
-            "%0A";
+            "🏠 *SELF PICKUP*%0A" +
+            "📍 *Mr D.I.Y. Pasir Panjang*%0A" +
+            "🚚 Caj Delivery: RM0.00%0A" +
+            "🗺️ *Lokasi Google Maps:*%0A" +
+            "https://maps.google.com/?q=MR.DIY+Pasir+Panjang+Kuala+Terengganu%0A";
 
     }
 
-}
+    else if(method === "cod"){
 
+        message +=
+            "🚗 *COD / DELIVERY*%0A" +
+            "📍 Kawasan: " +
+            location +
+            "%0A";
+
+
+        if(isFreeCOD()){
+
+            message +=
+                "🎁 *PROMO: BELI 3 ITEM = FREE COD!*%0A" +
+                "🚚 Caj Delivery: *FREE*%0A";
+
+        }else{
+
+            message +=
+                "🚚 Caj Delivery: RM" +
+                deliveryCharge.toFixed(2) +
+                "%0A";
+
+        }
+
+    }
+
+
+    /* =========================
+       TOTAL
+    ========================= */
 
     message +=
         "%0A💰 *TOTAL: RM" +
@@ -6752,22 +6739,29 @@ else{
         "*%0A%0A";
 
 
-   if(method === "cod"){
+    /* =========================
+       LIVE LOCATION
+    ========================= */
+
+    if(method === "cod"){
+
+        message +=
+            "📍 *PENTING:* Sila hantar *Live Location / Lokasi Semasa* anda di WhatsApp selepas mesej ini untuk memudahkan penghantaran. 📍%0A%0A";
+
+    }
+
 
     message +=
-        "📍 *PENTING:* Sila hantar *Live Location / Lokasi Semasa* anda di WhatsApp selepas mesej ini untuk memudahkan penghantaran. 📍%0A%0A";
-
-}
-
-message +=
-    "Saya ingin membuat tempahan. Terima kasih. 👑";
+        "Saya ingin membuat tempahan. Terima kasih. 👑";
 
 
-    let phone =
+    /* =========================
+       OPEN WHATSAPP
+    ========================= */
+
+    const phone =
         "60149428630";
 
-
-    /* OPEN WHATSAPP */
 
     window.open(
         "https://wa.me/" +
@@ -6778,7 +6772,9 @@ message +=
     );
 
 
-    /* CLEAR CART */
+    /* =========================
+       CLEAR CART
+    ========================= */
 
     cart = [];
 
@@ -6787,12 +6783,16 @@ message +=
     updateCart();
 
 
-    /* CLOSE CHECKOUT */
+    /* =========================
+       CLOSE CHECKOUT
+    ========================= */
 
     closeCheckout();
 
 
-    /* THANK YOU POPUP */
+    /* =========================
+       THANK YOU POPUP
+    ========================= */
 
     setTimeout(() => {
 
@@ -6802,6 +6802,21 @@ message +=
     },500);
 
 }
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
 
 
 function closeCheckout(){
